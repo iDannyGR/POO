@@ -1,14 +1,10 @@
 class Account {
-        id;
-        name;
-        document;
-        email;
-        password;
-    constructor(nombre, document, email, password){
-        this.name = nombre;
+    constructor(name, document){
+        this.id;
+        this.name = name;
         this.document = document;
-        this.email= email;
-        this.password = password;
+        this.email;
+        this.password;
 
     }
 }
