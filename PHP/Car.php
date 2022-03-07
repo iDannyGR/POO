@@ -1,4 +1,5 @@
 <?php
+    require_once('account.php');
     class Car{
         public $id;
         public $license;
@@ -6,11 +7,11 @@
         public $passagers;
         
         public function __construct($license, $driver){
-            $this->license = $licence;
+            $this->license = $license;
             $this->driver = $driver;
         }
         public function PrintCar(){
-        echo "license: {$this->licence}, conductor: {$this->driver->name}, document: {$this->driver->document}";
+        echo "license: {$this->license}, conductor: {$this->driver->name}, document: {$this->driver->document}";
         } 
 
 
