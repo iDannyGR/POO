@@ -1,4 +1,3 @@
-import java.util.function.DoubleUnaryOperator;
 
 public class Cash extends Payment {
     

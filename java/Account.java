@@ -9,4 +9,9 @@ class Account {
         this.name = name;
         this.document = document;
     }
+
+  
+    void printUser(){
+      System.out.println("User: "+name+" document: "+document+" email: "+email+" password: "+password);  
+  }
 }

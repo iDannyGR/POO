@@ -4,6 +4,7 @@ class Payment{
     }
     printTransaction() {
         console.log(this.id);
+        console.log(this.email)
         }
     
 
