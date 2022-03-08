@@ -1,8 +1,6 @@
 class User extends Account{
-        String email;
-
-    public User(String name, String document, String email){
+    public User(String name, String document, String email, String password){
         super(name, document, email, password);
-
     }
+       
 }

@@ -2,12 +2,21 @@ import java.util.Map;
 import java.util.ArrayList;
 
 class UberVan extends Car{
-    Map<String, ArrayList<String, Integer>>  typeCarAcepted;
+    Map<String, Map<String, Integer>>  typeCarAcepted;
     ArrayList<String> seatsMaterial;
+    private Integer passanger;
 
-    public UberVan(String license, Account driver,Map<String, ArrayList<String, Integer>>  typeCarAcepted, ArrayList<String> seatsMaterial ){
+    public UberVan(String license, Account driver){
         super(license, driver);
-        this.typeCarAcepted = typeCarAcepted;
-        this.seatsMaterial= seatsMaterial;
+      
+    }
+
+    @Override
+    public void setPassager(Integer passager) {
+        if(passager == 6){
+            this.passanger = passager;
+        }else{
+        System.out.println("necesitas asignar 4 pasajeros");}
+        
     }
 }
