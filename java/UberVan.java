@@ -4,8 +4,7 @@ import java.util.ArrayList;
 class UberVan extends Car{
     Map<String, Map<String, Integer>>  typeCarAcepted;
     ArrayList<String> seatsMaterial;
-    private Integer passanger;
-
+    
     public UberVan(String license, Account driver){
         super(license, driver);
       
@@ -16,7 +15,7 @@ class UberVan extends Car{
         if(passager == 6){
             this.passanger = passager;
         }else{
-        System.out.println("necesitas asignar 4 pasajeros");}
+        System.out.println("necesitas asignar 6 pasajeros");}
         
     }
 }
