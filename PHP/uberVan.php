@@ -8,7 +8,14 @@ require_once('car.php');
             parent::__construct($license, $driver);
             $this->typeCarAccepted=$typeCarAccepted;
             $this->seatMaterial=$seatMaterial;
-        }        
-    }
+        }
 
-?>
+        public function setPassanger($passenger){
+            if($passenger==6){
+                $this->passagers = $passenger;
+            }else{
+                echo "necesitas asignar 6 pasajeros";
+            }
+        }
+    }       
+   ?>

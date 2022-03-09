@@ -8,7 +8,13 @@
             parent::__construct($license, $driver);
             $this->brand=$brand;
             $this->model=$model;
-        }        
+        } 
+        
+        public function PrintCar(){
+            parent::PrintCar();
+            echo " Marca: {$this->brand}, Modelo: {$this->model}";
+          } 
+
     }
 
 ?>
