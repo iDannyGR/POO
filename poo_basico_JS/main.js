@@ -36,3 +36,37 @@ const juanita = new Student(
     "curso de ingles basico para pendejos"]
 )
 juanita.aprobarCurso('cursso de pasta dental y chano')
+
+
+// prototypes con class sintax
+
+class Student2{
+    constructor({
+        email,
+        name,
+        age,
+        courseAprobe = []
+    }){
+            this.name = name;
+            this.email = email;
+            this.age = age;
+            this.courseAprobe = courseAprobe;
+    }
+
+    aprobarCurso(course){
+        this.courseAprobe.push(course);
+    }
+}
+
+const Juan = new Student2({
+    name: "juan Perez",
+    age:28,
+    courseAprobe: [
+        'curso 1',
+        'curso 2'
+    ],
+    email: "a@a.com"
+});
+
+
+
