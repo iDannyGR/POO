@@ -1,17 +1,47 @@
+class learningPath{
+    constructor({
+        name,
+        courses =[]
+    }){
+        this.name = name;
+        this.courses = courses;
+    }
+}
+
+const desarrolloWeb = new learningPath({
+    name: 'escuela de desarrollo web',
+    courses: ['curso1', 'curso 2','curso 3']
+})
+
+const disDigital = new learningPath({
+    name: 'escuela de diseño web',
+    courses:['photoshop basico','diagrmas ','UML']
+})
+
 class Student {
     constructor({
         name,
         email,
         user,
-        socialmedia = [],
+        facebook,
+        twitter,
+        instagram,
         aproveCourse = [],
         learningPath =[]
     }){
         this.name= name,
         this.email=email,
         this.user=user,
-        this.socialmedia = [] = socialmedia,
-        this.aproveCourse = [] = aproveCourse,
-        this.learningPath = [] = learningPath}
+        this.socialmedia = {twitter, instagram, facebook},
+        this.aproveCourse = aproveCourse,
+        this.learningPath = learningPath}
 }
+
+const Juan2 = new Student({
+    name:"Jorge Dcx",
+    user: 'ing.jdrivera',
+    email:'ing.jdrivera@gmail.com',
+    facebook:'whitefox',
+    learningPath : [desarrolloWeb, disDigital]
+})
 
