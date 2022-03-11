@@ -6,6 +6,17 @@ class learningPath{
         this.name = name;
         this.courses = courses;
     }
+    addCourse(course){
+        this.courses.push(course);
+    }
+    deleteCourse(course){
+        let findCourse = this.courses.find(course);
+        (findCourse) ?
+        this.courses.pop(course):
+        console.log('Curso no encontrado no existe en la ruta');
+    }
+
+
 }
 
 const desarrolloWeb = new learningPath({
