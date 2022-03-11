@@ -1,72 +1,26 @@
-const natalia = {
-    name: "Natalya",
-    age: 20,
-    courseAprobe: [
-        "Curso definitivo de HTML/CSS",
-        "Curso Practico de HTML/CSS"
-    ],
+import Course from "./course.js";
+import learningPath from './learningPath.js';
+import Student from './student.js';
 
-    aprobarCurso(nuevoCurso){
-            this.courseAprobe.push(nuevoCurso);
-    }
-};
+const cursoProgBasica= new Course({name: "curso gratis de programacion basica"})
+const curso1 = new Course({name: "Curso definitivo de HTML"})
+const photoshop =  new Course({name: "photoshop basico"})
 
-//haceque natalia apruebe otro curso
+const desarrolloWeb = new learningPath({
+    name: 'escuela de desarrollo web',
+    courses: [cursoProgBasica,curso1,photoshop]
+})
 
-natalia.courseAprobe.push("Curso de polimorfismo");
-natalia.aprobarCurso('curso de closure and scope');
+const disDigital = new learningPath({
+    name: 'escuela de diseño web',
+    courses:['photoshop basico','diagrmas ','UML']
+})
 
-function Student(name, age, courseAprove) {
-        this.name = name;
-        this.age = age;
-        this.courseAprobe = courseAprove;
-        // this.aprovarCurso = ()=>{
-
-        // }
-}
-Student.prototype.aprobarCurso =function (nuevoCurso){
-    this.courseAprobe.push(nuevoCurso);
- }
-
-const juanita = new Student(
-    'Jorge Daniel Garcia',
-    32,
-    ["curso de pingaloca",
-        "curso de pingaloca 23423",
-    "curso de ingles basico para pendejos"]
-)
-juanita.aprobarCurso('cursso de pasta dental y chano')
-
-
-// prototypes con class sintax
-
-class Student2{
-    constructor({
-        email,
-        name,
-        age,
-        courseAprobe = []
-    }){
-            this.name = name;
-            this.email = email;
-            this.age = age;
-            this.courseAprobe = courseAprobe;
-    }
-
-    aprobarCurso(course){
-        this.courseAprobe.push(course);
-    }
-}
-
-const Juan = new Student2({
-    name: "juan Perez",
-    age:28,
-    courseAprobe: [
-        'curso 1',
-        'curso 2'
-    ],
-    email: "a@a.com"
-});
-
-
+const Juan2 = new Student({
+    name:"Jorge Dcx",
+    user: 'ing.jdrivera',
+    email:'ing.jdrivera@gmail.com',
+    facebook:'whitefox',
+    learningPath : [desarrolloWeb, disDigital]
+})
 
