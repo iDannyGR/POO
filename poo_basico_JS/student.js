@@ -1,4 +1,4 @@
-export default class Student {
+class Student {
     constructor({
         name,
         email,
@@ -14,6 +14,19 @@ export default class Student {
         this.user=user,
         this.socialmedia = {twitter, instagram, facebook},
         this.aproveCourse = aproveCourse,
-        this.learningPath = learningPath}
+        this.learningPath = learningPath
+    }
+
+    addPath(path){
+        this.learningPath.push(path);
+    }
+
+    deletePath(path){
+        let findPath = this.learningPath.indexOf(path);
+        (findPath > -1) ?
+            (console.log('Ruta eliminada'), this.learningPath.splice(findPath, 1)):
+            console.log('No se a agregado es ruta de aprendizaje')
+        
+    }
 }
 

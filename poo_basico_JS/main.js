@@ -1,6 +1,3 @@
-import Course from "./course.js";
-import learningPath from './learningPath.js';
-import Student from './student.js';
 
 const cursoProgBasica= new Course({name: "curso gratis de programacion basica"})
 const curso1 = new Course({name: "Curso definitivo de HTML"})

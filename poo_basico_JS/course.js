@@ -1,4 +1,4 @@
-export default class Course {
+class Course {
     constructor({
       id,
       name,
@@ -6,8 +6,19 @@ export default class Course {
       teacher,
     }){
       this.id = id;
-      this.name = name;
+      this._name = name;
       this.classes = classes;
       this.teacher = teacher;
     };
-  }
+
+    get name(){
+        return this._name;
+    }
+
+    set name(newName){
+      (newName === 'Curso maldito de programacion basica') ?
+      console.error('no puedes usar ese nombre') :
+      this._name = newName;
+    }
+
+ }
