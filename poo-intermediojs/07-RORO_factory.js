@@ -11,7 +11,7 @@ function createStudent ({
     facebook,
     instagram,
     approveCourses = [],
-    learningPaths = []
+    learningPaths = []          
 }= {}){
   
      return {
