@@ -54,23 +54,26 @@ function Student ({
     approveCourses = [],
     learningPaths = []          
 }= {}){
-    if(!isArray(learningPaths)){
-        console.warn('learningpatch no es un array')
-        return;
-    }
-    for(lPath of learningPaths){
-        if(!lPath instanceof learningPaths){
-            console.warn('learningPatch no es verdadero');
-            return;
-        }
-    }
 
     this.name = name;
     this.email = email;
     this.age = age;
     this.approveCourses = approveCourses
-    this.learningPaths = learningPaths;
     this.socialMedia = {twitter, facebook, instagram};
+    if(isArray(learningPaths)){
+        this.learningPaths= []
+
+        for(lPath of learningPaths){
+              if(lPath instanceof LeaningPatch){
+                this.learningPaths.push(lPath)
+            }
+        }
+
+
+      }
+     
+
+
 
 // //variables privadas funciona como setter y getter
 //   const private = {
@@ -118,9 +121,18 @@ function Student ({
 }
 
 
-
+const escuelaWeb = new LeaningPatch({name: "escuela de desarrollo"})
+const dataScience = new LeaningPatch({name: "escuela de data Science"})
 const dany = new Student({
     name: "daniel",
     age: 32,
-    email: "a@a",
+    email: 'a@a',
+    learningPaths: [
+        escuelaWeb,
+        dataScience,
+        {
+            name: "impostor",
+            courses: [],
+        }
+    ],
  })
