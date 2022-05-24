@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reto de clase 01 listado de tareas</title>
+</head>
+<body>
+    <div id="app">
+        <table border="3px">
+            <tr>
+                <th>tarea</th>
+                <th>estado</th>
+            </tr>
+        </table>
+    </div>
+    <script>
+        const table = document.querySelector('table')
+        const tareas = [
+            {title: 'tarea 1', status:true},
+            {title: 'tarea 2', status:true},
+            {title: 'tarea 3', status:false},
+            {title: 'tarea 4', status:true},
+            {title: 'tarea 5', status:false},
+            {title: 'tarea 6', status:true},
+            {title: 'tarea 7', status:false},
+        ];
+        tareas.forEach(tarea => {
+           (tarea.status)?
+            table.innerHTML+=`<th>${tarea.title}</th>
+                              <th><input type="checkbox" checked></th>`:
+            table.innerHTML+=`<th>${tarea.title}</th>
+                              <th><input type="checkbox"></th>`
+        })
+    
+    </script>
+    
+</body>
+</html>
