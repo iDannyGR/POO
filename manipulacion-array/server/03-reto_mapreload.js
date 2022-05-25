@@ -1,7 +1,8 @@
 function solution(array) {
-    array.map(item => {
-        return {...item, tax:item.price * .19}
+ const total =   array.map(item => {
+        return {...item, tax:parseInt(item.price * .19)}
     })
+    return total
 }; 
 
 
@@ -15,6 +16,11 @@ const clients = [
       name: "Product 2",
       price: 2000,
       stock: 20
+    },
+    {
+      name: "Product 3",
+      price: 256,
+      stock: 20
     }]
-
+console.table(clients)
 console.table(solution(clients))

@@ -25,6 +25,6 @@ const orders = [{
 //  console.table(rta2)
 
 //sin modificar el objeto en memoria
- const rta3 = orders.map(item => {return {...item, tax:.19};})
+ const rta3 = orders.map(item => {return {...item, tax:item.total*.19};})
 console.table(orders)
 console.table(rta3)
