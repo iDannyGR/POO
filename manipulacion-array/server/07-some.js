@@ -8,3 +8,7 @@ for (let index = 0; index < numbers.length; index++) {
 
 }
 console.log(rta)
+
+let rta2 = numbers.some(element => element % 2 === 0)
+
+console.log(rta2)
