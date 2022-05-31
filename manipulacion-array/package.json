@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "date-fns": "^2.28.0",
     "html-server": "^0.1.1",
     "http-server": "^14.1.0"
   }
