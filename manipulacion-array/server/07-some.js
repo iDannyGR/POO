@@ -1,4 +1,4 @@
-const dateFn = require('date-fns/areIntervalsOverlapping')
+
 const numbers = [1,2,3,4]
 let rta = false;
 for (let index = 0; index < numbers.length; index++) {
@@ -41,7 +41,7 @@ const rta3 = orders.some(item => item.delivered)
 console.log(rta3)
 
 
-
+const dateFn = require('date-fns/areIntervalsOverlapping')
 const dates = [
     {
       startDate: new Date(2021, 1, 1, 10),
@@ -62,12 +62,15 @@ const dates = [
 
   const newAppointment = {
       startDate: new Date(2021, 1, 1, 19),
-      endDate : new Date(2021, 1, 1,20, 30)
+      endDate : new Date(2021, 1, 1, 20, 30)
   }
+  
 const isOverlap = (newDate)=>{
     return dates.some(date=>{
         return dateFn (
-            {start:date.startDate, end:date.endDate})
-            {start:newDate.startDate, end:newDate.endDate}
+            {start:date.startDate, end:date.endDate},
+            {start:newDate.startDate, end:newDate.endDate})
     })
 }
+
+console.log(isOverlap(newAppointment))
