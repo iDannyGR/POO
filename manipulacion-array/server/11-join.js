@@ -9,3 +9,11 @@ for (let index = 0; index < elements.length; index++) {
 }
 
 console.log(rta)
+
+const rta2 = elements.join('--')
+console.log(rta2)
+
+const title = 'Curso de manipulacion de arrays';
+
+let rta3=title.split(' ').join('-').toLowerCase();
+console.table(rta3)
