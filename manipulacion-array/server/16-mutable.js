@@ -17,3 +17,22 @@ console.log("myProducts", myProducts);
 console.log("-".repeat(10));
 
 
+//update
+const products2 = [
+    { title: 'Pizza', price: 121, id: '🍕' },
+    { title: 'Burger', price: 121, id: '🍔' },
+    { title: 'Hot cakes', price: 121, id: '🥞' },
+];
+const update = {
+    id:'🥞',
+    changes : {
+        price: 200,
+        description: 'delicius'
+    }
+}
+
+const product2 = products2.findIndex(item => item.id === update.id)
+    products2[product2] = {...products2[product2],
+    ...update.changes}
+    //con spread operator se hace una fusion de datos
+console.table(products2)
