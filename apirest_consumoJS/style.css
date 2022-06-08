@@ -3,7 +3,8 @@
     font-family: helvetica;
 }
 body{
-    
+    background-color: black;
+    color: white;
 }
 
 h1{
@@ -12,25 +13,36 @@ h1{
 }
 #container{
     margin: auto;
-    min-height: 750px;
-    width: 850px;
-    border: 3px dashed black;
+    min-height: 850px;
+    min-width: 850px;
+    border: 3px dashed white;
     border-radius: 30px;
     padding: 10px;
     display: flex;
-    flex-direction: column;
-    justify-content:space-around;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: baseline;
 } 
-
+#container div{
+    box-shadow: 1px 1px 10px white;
+    border-radius: 30px;
+    min-height: 300px;
+    width: 250px;
+    margin: 20px 0 0 0;
+}
 #container p{
     text-align: center;
     font-family:'Courier New', Courier, monospace;
     font-size: 25px;
-    text-decoration: underline;
+    margin: 5px 0 15px 0;
 }    
 
 #container img{
- border-radius: 30px;
+ display: block;
+ border-radius: 0px 0px 30px 30px;
+ margin: 0px;
+ width: 250px;
+ height: 250px;
 }
 
 input[type=button]{

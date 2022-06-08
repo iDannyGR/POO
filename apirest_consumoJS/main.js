@@ -1,22 +1,23 @@
-const URL = 'https://rickandmortyapi.com/api/character/?page=4';
+ const URL = 'https://rickandmortyapi.com/api/character/';
 
-function ramdomNumber(n1, n2){
-    return parseInt((Math.random() * (n2 - n1 + 1)) + n1);
-}
-
+// function ramdomNumber(n1, n2){
+//     return parseInt((Math.random() * (n2 - n1 + 1)) + n1);
+// }
+const body = document.getElementById('container');
 async function rmperson(){
-    try {
-        const con =await fetch(URL);
-        const data =await con.json();
-        body = document.getElementById('container');
-         data.results.forEach(item => {
-        let contenido =   `<p>${item.name}</p>
-                  <img>${item.image}</img>`;
-        body.innerHTML 
-        });  
-    } catch (error) {
-        throw new Error(error)
-    }
+        const conexion =await fetch(URL);
+        const data = await conexion.json(); 
+        
+        data.results.forEach(item => {
+            const cart= document.createElement('div')
+            const  imgSrc = document.createElement('img')
+            imgSrc.src= item.image;
+            const title = document.createElement('p')
+            title.textContent= item.name
+            cart.append(title, imgSrc);
+            body.append(cart)
+        });
+
 }
 
 rmperson()
