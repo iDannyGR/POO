@@ -6,7 +6,7 @@
 //     return parseInt((Math.random() * (n2 - n1 + 1)) + n1);
 // }
 const body = document.getElementById('container');
-let queryParam = '?page=5';
+let queryParam = '?page=11';
 async function rmperson(){
         const conexion =await fetch(URL+queryParam);
         const data = await conexion.json(); 
@@ -16,6 +16,7 @@ async function rmperson(){
             const  imgSrc = document.createElement('img')
             imgSrc.src= item.image;
             const title = document.createElement('p')
+            const addFavorite = document.createElement()
             title.textContent= item.name
             cart.append(title, imgSrc);
             body.append(cart)
