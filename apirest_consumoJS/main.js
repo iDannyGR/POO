@@ -7,8 +7,10 @@ let queryParam = '?limit=10';
 //     return parseInt((Math.random() * (n2 - n1 + 1)) + n1);
 // }
 const body = document.getElementById('container');
+const error = document.getElementById('error')
 
 async function getData(){
+    try {
         const conexion =await fetch(`${URL}images/search${queryParam}&${API_KEY}`);
         const data = await conexion.json(); 
         data.forEach((item) => {
@@ -20,14 +22,29 @@ async function getData(){
             container.append(addFavorite, imgSrc);
             body.append(container)
          });
-
+    } catch (error) {
+        error.textContent('Error de conexion')
+        throw Error(error);    
+    }
 }
 
 async function favourites(){
-    const conexion =await fetch(`${URL}favourites${queryParam}&${API_KEY}`);
-    const data = await conexion.json(); 
-    console.log(data);
+    try {
+        const conexion =await fetch(`${URL}favourites?${API_KEY}`,{
+            method:'POST',
+            headers:{
+                'Content-Type':'application/json'
+            },
+            body:
+        });
+        console.log(conexion)
+        const data = await conexion.json(); 
 
+
+    } catch (error) {
+        
+    }
+    
 }
 
 favourites()
