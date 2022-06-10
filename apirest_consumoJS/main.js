@@ -7,7 +7,7 @@ let queryParam = '?limit=10';
 //     return parseInt((Math.random() * (n2 - n1 + 1)) + n1);
 // }
 const body = document.getElementById('container');
-const error = document.getElementById('error')
+const errorMessage = document.getElementById('error')
 
 async function getData(){
     try {
@@ -19,11 +19,12 @@ async function getData(){
             imgSrc.src= item.url;
             const addFavorite = document.createElement('button');
             addFavorite.textContent='Favourite';
+            addFavorite.setAttribute('onclick', 'favourites()');
             container.append(addFavorite, imgSrc);
             body.append(container)
          });
     } catch (error) {
-        error.textContent('Error de conexion')
+        errorMessage.textContent('Error de conexion')
         throw Error(error);    
     }
 }
@@ -35,20 +36,21 @@ async function favourites(){
             headers:{
                 'Content-Type':'application/json'
             },
-            body:
+            body: JSON.stringify({image_id:'12'})
         });
-        console.log(conexion)
-        const data = await conexion.json(); 
+            const data = await conexion.json(); 
+            console.table(data)
 
 
     } catch (error) {
-        
+        console.table(error)
+        throw Error(error)
     }
     
 }
 
-favourites()
 getData()
+
 
 // fetch(URL)
 //     .then(res => res.json())
