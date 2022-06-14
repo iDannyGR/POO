@@ -9,7 +9,7 @@ body{
     min-height: 100vh; 
 }
 
-header>h1{
+.title{
     text-align: center;
     font-size: 45px;
     text-shadow: 1px 1px 5px orange;
@@ -19,7 +19,41 @@ header>span{
     text-align: center;
     display: block;
 }
-#container{
+
+.containerImg{
+    background-color: white;
+    box-shadow: 1px 1px 10px rgb(172, 126, 1);
+    min-height: 300px;
+    width: 250px;
+    margin: 20px 0 0 0;
+    position: relative;
+    align-items: center;
+}
+.button {
+    background-color: rgba(80, 79, 74, 0.336);
+    width: 250px;
+    height: 50px;
+    border: 0px;
+    position:absolute;
+    bottom: 2px;
+    font-size: 30px;
+    font-weight: bolder;
+    text-shadow: 1px 2px 2px orange;    
+}
+.button:hover{
+    background-color: rgba(224, 188, 7, 0.897);
+}
+
+.button:active{
+    background-color: rgba(255, 255, 254, 0.897);
+}
+.imageLoad{
+    margin: 0px;
+    width: 250px;
+    height: 300px;
+   }
+
+#ramdomCat{
     margin: auto;
     border:2px solid rgb(102, 95, 95);
     width: 90%;
@@ -31,47 +65,22 @@ header>span{
     justify-content: space-between;
     align-content: baseline;
 } 
-#container div{
-    background-color: white;
-    box-shadow: 1px 1px 10px rgb(172, 126, 1);
-    min-height: 300px;
-    width: 250px;
-    margin: 20px 0 0 0;
-    position: relative;
-    align-items: center;
-}
-#container div:hover{
+#ramdomCat div:hover{
     transform: scale(1.1);
     transition: .2s;
 }
-#container button {
-    background-color: rgba(80, 79, 74, 0.336);
-    width: 250px;
-    height: 50px;
-    border: 0px;
-    position:absolute;
-    bottom: 2px;
-    font-size: 30px;
-    font-weight: bolder;
-    text-shadow: 1px 2px 2px orange;
-      
+
+#favorite{
+    margin: auto;
+    border:2px solid rgb(102, 95, 95);
+    width: 90%;
+    min-height: 750px;
+    padding: 10px;
+    box-shadow: 1px 1px 10px black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: baseline;
 }
 
-#container button:hover{
-    background-color: rgba(224, 188, 7, 0.897);
-}
 
-#container button:active{
-    background-color: rgba(255, 255, 254, 0.897);
-}
-#container p{
-    text-align: center;
-    font-size: 25px;
-    margin: 5px 0 15px 0;
-}    
-
-#container img{
- margin: 0px;
- width: 250px;
- height: 300px;
-}
