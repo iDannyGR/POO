@@ -1,6 +1,6 @@
  const URL = 'https://api.thecatapi.com/v1/';
 //para colocar una api key se escribe en la URL 
-const API_KEY='api_key=e704b6ae-17c0-4d01-9e4a-5e1f6c9d0bf4';
+const API_KEY='e704b6ae-17c0-4d01-9e4a-5e1f6c9d0bf4';
 let queryParam = '?limit=10';
 //es la key que solicite en cat API
 // function ramdomNumber(n1, n2){
@@ -12,7 +12,10 @@ const errorMessage = document.getElementById('error');
 
 async function getData(){
     try {
-        const conexion =await fetch(`${URL}images/search${queryParam}&${API_KEY}`);
+        const conexion =await fetch(`${URL}images/search${queryParam}`,{
+            method: 'GET',
+            headers: {'X-API-KEY': API_KEY}
+        });
         const data = await conexion.json(); 
         const allData = [];
        // const allData = new DocumentFragment(); //crea un framento de document
@@ -41,8 +44,11 @@ async function getData(){
     }
 }
 async function loadCatFavorite(){
-    favoritesContainer.innerHTML = ''
-    const response = await fetch(`${URL}favourites?${API_KEY}`);
+    favoritesContainer.innerHTML = '';
+    const response = await fetch(`${URL}favourites`,{
+        method:'GET',
+        headers:{'X-API-KEY': API_KEY}
+    });
     const data = await response.json();
     const dataFavorites = [];
         data.forEach(item => {
@@ -65,9 +71,10 @@ async function loadCatFavorite(){
 async function favourite(id){
     try {
         
-        const conexion =await fetch(`${URL}favourites?${API_KEY}`,{
+        const conexion =await fetch(`${URL}favourites`,{
             method:'POST',
             headers:{
+                'X-API-KEY': API_KEY,
                 'Content-Type':'application/json'
             },
             body: JSON.stringify({image_id:id})
@@ -82,7 +89,7 @@ async function favourite(id){
 }
 async function deleteMichi(id){
     try {
-        const conexion =await fetch(`${URL}favourites/${id}?${API_KEY}`,{method:'DELETE'});
+        const conexion =await fetch(`${URL}favourites/${id}`,{method:'DELETE', headers:{'X-API-KEY':API_KEY}});
         loadCatFavorite()
     } catch (error) {
         console.table(error)
