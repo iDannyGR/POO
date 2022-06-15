@@ -64,7 +64,8 @@ async function loadCatFavorite(){
             img.src = item.image.url;
             art.append(btn,img);
             dataFavorites.push(art)
-            console.log(item)
+            console.log(item) 
+            
         })
     favoritesContainer.append(...dataFavorites)
 }
@@ -95,6 +96,9 @@ async function deleteMichi(id){
         console.table(error)
         throw Error(error)
     }
+}
+async function uploadMichi(){
+    
 }
 
 getData()

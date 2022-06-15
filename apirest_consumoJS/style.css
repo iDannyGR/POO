@@ -74,7 +74,7 @@ header>span{
     margin: auto;
     border:2px solid rgb(102, 95, 95);
     width: 90%;
-    min-height: 750px;
+    min-height: 25%;
     padding: 10px;
     box-shadow: 1px 1px 10px black;
     display: flex;
