@@ -35,8 +35,7 @@ async function getData(){
             // entregado como parametro en este caso item.id
             container.append(addFavorite, imgSrc);
             allData.push(container);
-            console.table(item)
-         });
+            });
          body.append(...allData);
     } catch (error) {
         errorMessage.textContent('Error de conexion')
@@ -63,9 +62,7 @@ async function loadCatFavorite(){
             img.className='imageLoad';
             img.src = item.image.url;
             art.append(btn,img);
-            dataFavorites.push(art)
-            console.log(item) 
-            
+            dataFavorites.push(art)      
         })
     favoritesContainer.append(...dataFavorites)
 }
@@ -98,11 +95,23 @@ async function deleteMichi(id){
     }
 }
 async function uploadMichi(){
-    
+    const form = document.getElementById('uploadMichi') ;
+    const fData = new FormData(form);
+    console.log(fData.get('file'));
+    const conexion = await fetch( `${URL}upload`,{
+        method:'POST',
+        headers:{
+            'X-API-KEY': API_KEY,
+            'Content-Type':'application/json'
+        },
+        body: JSON.stringify({image_id:id})
+        
+    });
 }
 
 getData()
 loadCatFavorite()
+
 
 // fetch(URL)
 //     .then(res => res.json())
