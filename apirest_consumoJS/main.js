@@ -109,7 +109,7 @@ async function loadImgCat(){
         console.log(file);
         if (file.length > 0) {
           const fileReader = new FileReader();
-      
+          console.log(fileReader)
           fileReader.onload = function(e) {
             document.getElementById("upImg").setAttribute("src", e.target.result);
           };
