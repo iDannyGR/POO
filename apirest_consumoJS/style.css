@@ -8,7 +8,6 @@ body{
     color: black;
     min-height: 100vh; 
 }
-
 .title{
     text-align: center;
     font-size: 45px;
@@ -19,7 +18,6 @@ header>span{
     text-align: center;
     display: block;
 }
-
 .containerImg{
     background-color: white;
     box-shadow: 1px 1px 10px rgb(172, 126, 1);
@@ -43,16 +41,39 @@ header>span{
 .button:hover{
     background-color: rgba(224, 188, 7, 0.897);
 }
-
 .button:active{
     background-color: rgba(255, 255, 254, 0.897);
 }
+ input[type='file'] {
+    display:none
+ }
+
+ .file-upload{
+    display: flex;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bolder;
+    width: 225px;
+    height: 25px;
+    background-color: rgba(80, 79, 74, 0.336);
+    text-shadow: 1px 2px 2px orange;
+    padding: 6px 12px;
+    cursor: pointer;
+ }
+ .file-upload:hover{
+    background-color: rgba(224, 188, 7, 0.897);
+}
 .imageLoad{
-    margin: 0px;
+    margin: auto;
     width: 250px;
     height: 300px;
    }
 
+#uploadMichi img{
+    display: flex;
+    width: 250px;
+    height: 300px;
+}
 #ramdomCat{
     margin: auto;
     border:2px solid rgb(102, 95, 95);
@@ -83,4 +104,16 @@ header>span{
     align-content: baseline;
 }
 
+#form-upload_image{
+    margin:auto;
+    border:2px solid rgb(102, 95, 95);
+    width: 90%;
+    min-height: 25%;
+    padding: 10px;
+    box-shadow:1px 1px 10px yellow;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+    align-content:stretch;
 
+}

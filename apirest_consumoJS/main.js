@@ -97,16 +97,24 @@ async function deleteMichi(id){
 async function uploadMichi(){
     const form = document.getElementById('uploadMichi') ;
     const fData = new FormData(form);
-    console.log(fData.get('file'));
-    const conexion = await fetch( `${URL}upload`,{
+    const conexion = await fetch( `${URL}images/upload`,{
         method:'POST',
-        headers:{
-            'X-API-KEY': API_KEY,
-            'Content-Type':'application/json'
-        },
-        body: JSON.stringify({image_id:id})
-        
-    });
+        headers:{'X-API-KEY': API_KEY},
+        body: fData
+        });
+        console.log(conexion)
+}
+async function loadImgCat(){
+        const file = document.getElementById("file").files;
+        console.log(file);
+        if (file.length > 0) {
+          const fileReader = new FileReader();
+      
+          fileReader.onload = function(e) {
+            document.getElementById("upImg").setAttribute("src", e.target.result);
+          };
+          fileReader.readAsDataURL(file[0]);
+        }
 }
 
 getData()

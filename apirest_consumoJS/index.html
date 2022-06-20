@@ -13,10 +13,15 @@
         <span id="error"></span>
     </header>
     <section id="form-upload_image">
-        <h2>sube la foto de tu gatito</h2>
-        <form action="" id="uploadMichi">
-            <input type="file" name="file" id="file" />
-            <button type="button" onclick="uploadMichi()">Subir Foto</button>
+        <form id="uploadMichi">                                        
+            <div class="containerImg">
+                <label class="file-upload">
+                    <input type="file" id='file' onchange="loadImgCat()">
+                    Sube la foto de tu Michi
+                </label>
+                <img src="" alt="" id="upImg" />
+                <button type="button" onclick="uploadMichi()" class="button">Subir Foto</button>
+            </div>
         </form>
     </section>
     <section id="ramdomCat">
@@ -30,3 +35,5 @@
     <script src="main.js"></script> 
 </body>
 </html>
+
+
