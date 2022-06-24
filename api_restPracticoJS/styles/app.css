@@ -4,6 +4,13 @@
     margin: 0;
     padding: 0;
 }
+:root{
+    --themeColor1: ;
+    --themeColor2: ;
+    --themeColor3: ;
+    --themeColor4: ;
+
+}
 html{
     background-color: #9BE3DE;
     font-family: 'Montserrat', sans-serif;
