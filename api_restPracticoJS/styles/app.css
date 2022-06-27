@@ -5,18 +5,19 @@
     padding: 0;
 }
 :root{
-    --themeColor1: ;
-    --themeColor2: ;
-    --themeColor3: ;
-    --themeColor4: ;
+    --themeColor1:white ;
+    --themeColor2:white ;
+    --themeColor3:black ;
+    --themeColor4:white ;
 
 }
 html{
-    background-color: #9BE3DE;
+    background-color: var(--themeColor1);
     font-family: 'Montserrat', sans-serif;
+    color:var(--themeColor3);
 }
 body{
     width: 90%;
     min-height: 75% ;
-    background-color: #BEEBE9;
+    background-color: var(--themeColor2);
 }
