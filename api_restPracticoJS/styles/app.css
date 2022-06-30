@@ -21,6 +21,19 @@ body{
     height: 100%;
     background-color: white;
 }
+header{
+ text-align: center;
+ margin: 2% 0 0 0;
+}
+nav{
+    margin:2% 0 0 0;
+}
+nav input[type="text"]{
+    border-radius: 45px;
+    height: 35px;
+    width: 460px;
+    text-decoration:aliceblue;
+}
 .main-aside{
     margin: auto;
     position: fixed;
