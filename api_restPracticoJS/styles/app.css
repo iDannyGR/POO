@@ -3,6 +3,7 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 :root{
     --themeColor1:white ;
@@ -17,8 +18,8 @@ html{
     color:var(--themeColor3);
 }
 body{
-    width:100%;
-    height: 100%;
+    margin: 0px;
+    padding: 0px;
     background-color: white;
 }
 header{
@@ -26,7 +27,7 @@ header{
  margin: 2% 0 0 0;
 }
 nav{
-    width: 100%;
+    width: 90%;
     margin:2% 0 0 0;
     display: flex;
     justify-content: right;
@@ -34,7 +35,10 @@ nav{
 nav input[type="text"]{
     font-family: 'Montserrat', sans-serif;
     border-radius: 5px;
-    background-color: rgba(93, 245, 39, 0);
+    border: none;
+    margin:0 0 10px 0;
+    padding: 3px;
+    background-color: aquamarine;
     height: 35px;
     width: 460px;
 }
@@ -46,24 +50,23 @@ nav input[type="text"]{
     border: 1px solid black;
     border-radius: 25px;
 }
-.main-section{
-    margin: auto;
-    width:80%;
+.main-general_movies{
+    margin: 0 0 0 10%;
+    width:85%;
     height:350px;
     position:static;
     display: flex;
     flex-direction: row;
     justify-content:space-around;
     box-shadow: 0px 1px 6px -3px #000000;
-    border-radius: 5px;
 }
-.general-movies{
+.post-movie{
     margin: 10px;
 }
-.general-movies p {
-    font-size:15px;
+.post-movie p {
+    font-size:1rem;
 }
-.general-movies img{
+.post-movie img{
     width: 180px;
     height: 240px;
     border-radius: 25px;
