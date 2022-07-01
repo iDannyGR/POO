@@ -26,13 +26,17 @@ header{
  margin: 2% 0 0 0;
 }
 nav{
+    width: 100%;
     margin:2% 0 0 0;
+    display: flex;
+    justify-content: right;
 }
 nav input[type="text"]{
-    border-radius: 45px;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 5px;
+    background-color: rgba(93, 245, 39, 0);
     height: 35px;
     width: 460px;
-    text-decoration:aliceblue;
 }
 .main-aside{
     margin: auto;
