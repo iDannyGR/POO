@@ -3,7 +3,7 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+
 }
 :root{
     --themeColor1:white ;
@@ -16,18 +16,14 @@
 }
 html{
     font-family: 'Montserrat', sans-serif;
-    color:var(--themeColor4);
+    color: white;
 }
 body{
     margin: 0px;
     padding: 0px;
     background-color: black;
 }
-.main{
-    margin: auto;
-    max-width: var(--max-width);
-    border: 1px solid white;
-}
+
 header{
     text-align: center;
     text-shadow: 5px 1px 7px red;
@@ -36,6 +32,10 @@ header{
     height: 100px;
     top: 0px;
     width: 100%;
+}
+.main{
+    margin: auto;
+    max-width: var(--max-width);
 }
 nav{
     width: 82%;
@@ -55,20 +55,18 @@ nav input[type="text"]{
     box-shadow: 0px 0px 10px white;
 }
 .main-title__section{
-    margin: auto;
+    text-align: center;
 }
 .main-aside{
-    display: fixed;
+    position:fixed;
     float: left;
-    width:175px;
-    height:100%;
+    width:170px;
     border: 1px solid white;
 }
 .menu{
     list-style-type: none;
     display: flex;
     flex-direction: column;
-    justify-content:center; 
 }
 .menu li{
     padding: 15px;
@@ -77,22 +75,24 @@ nav input[type="text"]{
     text-decoration: none;
 }
 .main-section{
-    margin:auto;
+    margin: auto;
     width: 950px;
     border: 1px solid white;
 }
 .main-general_movies{
-    margin:auto;
     width:940px;
     height:300px;
     display: flex;
     flex-direction: row;
-   border:1px solid white;
 }
 .post-movie{
     margin: 10px;
     width: 150px;
     height: 220px;
+}
+.post-movie:hover{
+    transform: scale(1.1);
+    transition: .2s;
 }
 .post-movie p {
     font-size:1rem;
