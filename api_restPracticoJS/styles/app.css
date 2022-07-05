@@ -55,13 +55,23 @@ nav input[type="text"]{
     box-shadow: 0px 0px 10px white;
 }
 .main-title__section{
-    text-align: center;
+    padding: 0.5em;
 }
 .main-aside{
     position:fixed;
     float: left;
     width:170px;
-    border: 1px solid white;
+}
+
+.main-aside li a,  .main-aside li a:visited {
+    color: white
+}
+.main-aside li:hover{
+    background: white;
+    border-radius: 10px 0 0 10px;
+}
+.main-aside li a:hover{
+    color:black;
 }
 .menu{
     list-style-type: none;
@@ -105,9 +115,12 @@ nav input[type="text"]{
     box-shadow: 1px 0px 7px black;
 }
 footer{
+    padding: 25px 0 25px 0 ;
     text-align: center;
+    width: 100%;
 }
 footer a{
+    font-size: 1.2em;
     text-decoration: none;
     color: purple;
 }
