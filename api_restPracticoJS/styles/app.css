@@ -26,8 +26,8 @@ body{
 
 header{
     text-align: center;
-    text-shadow: 5px 1px 7px red;
-    color: white;
+    text-shadow: 5px 1px 7px white;
+    color: black;
     padding:25px;
     height: 100px;
     top: 0px;
@@ -38,36 +38,34 @@ header{
     max-width: var(--max-width);
 }
 nav{
-    width: 82%;
-    margin: 5% 0 0 0;
-    display: flex;
-    flex-direction: row;
-    justify-content:center;
+    width: 60%;
     margin: auto;
+    display: flex;
+    border: 1px solid white;
 }
 .main-menu{
     display: flex;
     list-style-type: none;
-    margin: 0 0 0 0;
-
+    margin: auto;
 }
 nav input[type="text"]{
     font-family: 'Montserrat', sans-serif;
     border-radius: 5px;
     border: none;
-    margin:0 0 10px 0;
     padding: 3px;
     background-color: black;
     height: 35px;
-    width: 460px;
+    width: 360px;
     box-shadow: 0px 0px 10px white;
 }
 .main-title__section{
     padding: 0.5em;
 }
 .title-category{
+    font-weight: bold;
+    color: black;
     font-size: 1.5rem;
-    text-shadow: 3px 3px 5px red;
+    text-shadow: 0 0 8px white;
 }
 .title-category:hover{
     background-color: black;
