@@ -3,7 +3,6 @@
 *{
     margin: 0;
     padding: 0;
-
 }
 :root{
     --font-theme:'Montserrat', sans-serif ;
@@ -12,7 +11,6 @@
     --themeColor4:white ;
     --textsize1:12px;
     --max-width : 1300px;
-
 }
 html{
     font-family: var(--font-theme);
@@ -67,13 +65,10 @@ nav{
 .main-menu li a:hover:after{
     width: 100%;
 }
- 
-.search-box{
+ .search-box{
     display: flex;
     flex-direction: row;
 }
-
-
 nav input[type="text"]{
     color: white;
     border: 1px solid white;
@@ -97,6 +92,7 @@ nav input[type="text"]{
 }
 .main-title__section{
     padding: 0.5em;
+    margin: 30px 0 40px 0 ;
 }
 .title-category{
     font-weight: bold;
@@ -112,7 +108,6 @@ nav input[type="text"]{
     float: left;
     width:170px;
 }
-
 .main-aside li a,  .main-aside li a:visited {
     color: white
 }
@@ -128,7 +123,6 @@ nav input[type="text"]{
     display: flex;
     flex-direction: column;
 }
-
 .main-menu li,.category li{
     padding: 15px;
 }
@@ -155,11 +149,11 @@ nav input[type="text"]{
 }
 .main-general_movies::-webkit-scrollbar-track, .main-trending_movies::-webkit-scrollbar-track{
     border-radius: 100px;
-   }
-   .main-general_movies::-webkit-scrollbar-thumb, .main-trending_movies::-webkit-scrollbar-thumb{
+}
+.main-general_movies::-webkit-scrollbar-thumb, .main-trending_movies::-webkit-scrollbar-thumb{
     border-radius: 100px;
     background-color: white;
-   }
+}
 .post-movie{
     margin: 10px;
     width: 150px;
@@ -169,12 +163,11 @@ nav input[type="text"]{
     transform: scale(1.1);
     transition: .2s;
 }
-
-   .post-movie{
-       margin: 10px;
-       width: 150px;
-       height: 220px;
-   }
+.post-movie{
+    margin: 10px;
+    width: 150px;
+    height: 220px;
+}
 .post-movie p {
     font-size:1rem;
 }
