@@ -32,7 +32,7 @@ async function getCategoriesPreview(){
         const res = await fetch(categoryMovies + API_KEY)
         const data = await res.json()
         const categories = data.genres
-        const categoryContainer = document.getElementById('category-menu')
+        const categoryContainer = document.getElementById('categoryList')
         const listCategory = []
             console.log(categories)
         categories.forEach(category => {
@@ -46,7 +46,6 @@ async function getCategoriesPreview(){
     } catch (error) {
         throw Error(error)
     }
- 
 }
 getTrendingMoviesPreview()
 getCategoriesPreview()
@@ -56,3 +55,8 @@ getCategoriesPreview()
         // <img src="./img/BSG.jpg" alt="" />
         // <h3>movie  1</h3>
         // <p>1:30 Minutes</p>
+    //     <ul class="categorylist">
+    //     <li><a href="">horror</a></li>
+    //     <li><a href="">comedy</a></li>
+    //     <li><a href="">historical</a></li>
+    //    </ul>

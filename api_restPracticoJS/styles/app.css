@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Comforter&family=Montserrat:wght@300&display=swap');
 
+/*general formating css*/
 *{
     margin: 0;
     padding: 0;
@@ -21,7 +22,7 @@ body{
     background: black;
     color: white;
 }
-
+/* header formating ---- >*/
 header{
     text-align: center;
     text-shadow: 5px 1px 7px white;
@@ -31,10 +32,13 @@ header{
     top: 0px;
     width: 100%;
 }
+
+/* header formating <---- >*/
 .main{
     margin: auto;
     max-width: var(--max-width);
 }
+/* main menu */
 nav{
     width: 60%;
     margin: auto;
@@ -45,11 +49,15 @@ nav{
     list-style-type: none;
     margin: auto;
 }
+.main-menu li {
+    padding: 15px;
+}
 .main-menu li a{
     padding: 1.2em;
     color: white;
     text-transform: uppercase;
     position: relative;
+    text-decoration: none;
 }
 .main-menu li a:after{
     content: '';
@@ -90,48 +98,30 @@ nav input[type="text"]{
     font-family: var(--font-theme);
 
 }
+/* body web app */
+/* section formating*/
 .main-title__section{
     padding: 0.5em;
     margin: 30px 0 40px 0 ;
 }
-.title-category{
-    font-weight: bold;
-    color: black;
-    font-size: 1.5rem;
-    text-shadow: 0 0 8px white;
-}
-.title-category:hover{
-    background-color: black;
-}
-.main-aside{
-    position:fixed;
-    float: left;
-    width:170px;
-}
-.main-aside li a,  .main-aside li a:visited {
-    color: white
-}
-.main-aside li:hover{
-    background: white;
-    border-radius: 10px 0 0 10px;
-}
-.main-aside li a:hover{
-    color:black;
-}
-.category{
-    list-style-type: none;
-    display: flex;
-    flex-direction: column;
-}
-.main-menu li,.category li{
-    padding: 15px;
-}
-.main-menu a ,.category a{
-    text-decoration: none;
-}
 .main-section{
     margin: auto;
     width: 950px;
+}
+.categoryList{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    flex-wrap: wrap;
+}
+.categoryList li{
+    list-style-type: none;
+    padding: 5px;
+    margin: 5px 5px;
+    border: 1px solid white;
+    border-radius: 10px 0px 10px 0px ;
+    box-shadow: 0px 0px 7px white;
 }
 .main-favorites_movies, .main-trending_movies{
     width:940px;
