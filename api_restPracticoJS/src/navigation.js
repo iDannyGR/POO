@@ -1,18 +1,38 @@
+import {getCategoriesPreview, getTrendingMoviesPreview} from './axios.js'
 window.addEventListener('DOMContentLoaded', navigation, false);
 window.addEventListener('hashchange', navigation, false);
 
 function navigation(){
-    console.log(location)
+    console.log({location})
     
    if (location.hash.startsWith('#trends')) {
-       console.log('trends') 
+       trendsPages()
    } else if(location.hash.startsWith('#search=')) {
-    console.log('vista de busqueda') 
+        searchPage()
    }else if(location.hash.startsWith('#movie=')) {
-    console.log('Movie') 
+     movieDetails()
    }else if(location.hash.startsWith('#category=')) {
-    console.log('categories') 
+     categoriesPage()
    }else {
-    console.log('Home')
+    homePage()
+    
    }
+}
+
+function homePage(){
+    console.log('Home')
+    getTrendingMoviesPreview()
+    getCategoriesPreview()
+}
+function categoriesPage(){
+    console.log('categories') 
+}
+function searchPage(){
+    console.log('vista de busqueda') 
+}
+function trendsPages(){
+    console.log('trends') 
+}
+function movieDetails(){
+    console.log('Movie') 
 }

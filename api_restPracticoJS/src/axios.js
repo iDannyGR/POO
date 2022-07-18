@@ -7,7 +7,7 @@ const api = axios.create({
 });
 
 
-async function getTrendingMoviesPreview(){
+ async function getTrendingMoviesPreview(){
     try {
         const {data, status} = await api.get(`/trending/movie/day`)
         const movies= data.results;
@@ -31,7 +31,7 @@ async function getTrendingMoviesPreview(){
          throw Error(error) 
     }
 };
-async function getCategoriesPreview(){
+ async function getCategoriesPreview(){
     try {
         const {data, status} = await api.get('genre/movie/list')
         const categories = data.genres
@@ -49,6 +49,5 @@ async function getCategoriesPreview(){
         throw Error(error)
     }
 }
-getTrendingMoviesPreview()
-getCategoriesPreview()
 
+export {getTrendingMoviesPreview,getCategoriesPreview}

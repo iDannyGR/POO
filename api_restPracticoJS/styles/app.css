@@ -13,6 +13,7 @@
     --textsize1:12px;
     --max-width : 1300px;
 }
+
 html{
     font-family: var(--font-theme);
 }
@@ -182,4 +183,9 @@ footer a{
     font-size: 1.2em;
     text-decoration: none;
     color: purple;
+}
+
+/*general options*/
+.inactive{
+    display:none;
 }
