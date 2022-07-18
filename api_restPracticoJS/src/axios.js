@@ -1,11 +1,15 @@
-import { API_KEY } from './env.js'; 
-const trendURL = 'https://api.themoviedb.org/3/trending/movie/day?api_key='
-const categoryMovies = 'https://api.themoviedb.org/3/genre/movie/list?api_key='
+import {API_KEY} from './env.js'
+const api = axios.create({
+    baseURL : 'https://api.themoviedb.org/3/',
+    params:{
+        api_key: API_KEY,
+    }
+});
+
 
 async function getTrendingMoviesPreview(){
     try {
-        const res = await fetch(trendURL+API_KEY);
-        const data =await res.json();
+        const {data, status} = await api.get(`/trending/movie/day`)
         const movies= data.results;
         const trendingContanier = [];
         const allTreding = document.getElementById('trendingMovies');
@@ -29,12 +33,10 @@ async function getTrendingMoviesPreview(){
 };
 async function getCategoriesPreview(){
     try {
-        const res = await fetch(categoryMovies + API_KEY)
-        const data = await res.json()
+        const {data, status} = await api.get('genre/movie/list')
         const categories = data.genres
         const categoryContainer = document.getElementById('categoryList')
         const listCategory = []
-            console.log(categories)
         categories.forEach(category => {
                     const oneCategory = document.createElement('li')
                     const categoryLink = document.createElement('a')
@@ -49,5 +51,4 @@ async function getCategoriesPreview(){
 }
 getTrendingMoviesPreview()
 getCategoriesPreview()
-
 
