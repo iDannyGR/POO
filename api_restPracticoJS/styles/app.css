@@ -129,7 +129,7 @@ nav input[type="text"]{
     transition: 0.6s;
     box-shadow: 0px 0px 7px yellow;
 }
-.main-favorites_movies, .main-trending_movies{
+.main-trending_movies{
     width:940px;
     height:300px;
     display: flex;
@@ -140,16 +140,28 @@ nav input[type="text"]{
     overflow-x:auto;
     overflow-y: none;
 }
-.main-general_movies::-webkit-scrollbar, .main-trending_movies::-webkit-scrollbar{
+/*all scrollbar styles*/
+.main-trending_movies::-webkit-scrollbar{
  height: 5px;
 }
-.main-general_movies::-webkit-scrollbar-track, .main-trending_movies::-webkit-scrollbar-track{
+ .main-trending_movies::-webkit-scrollbar-track{
     border-radius: 100px;
 }
-.main-general_movies::-webkit-scrollbar-thumb, .main-trending_movies::-webkit-scrollbar-thumb{
+ .main-trending_movies::-webkit-scrollbar-thumb{
     border-radius: 100px;
     background-color: white;
 }
+.main-active_movies::-webkit-scrollbar{
+    width: 5px;
+}
+.main-active_movies::-webkit-scrollbar-track{
+    border-radius: 100px;
+}
+.main-active_movies::-webkit-scrollbar-thumb{
+    border-radius: 100px;
+    background-color: white;
+}
+/*end scrollbar styles*/
 .post-movie{
     margin: 10px;
     width: 150px;
@@ -163,6 +175,7 @@ nav input[type="text"]{
     margin: 10px;
     width: 150px;
     height: 220px;
+    padding: 0 10px 30px 0;
 }
 .post-movie p {
     font-size:1rem;
@@ -184,7 +197,18 @@ footer a{
     text-decoration: none;
     color: purple;
 }
-
+/* category selected */
+.main-active_movies{
+    width:960px;
+    height:600px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    flex-wrap: wrap;
+    overflow-x:none;
+    overflow-y: auto;
+}
 /*general options*/
 .inactive{
     display:none;

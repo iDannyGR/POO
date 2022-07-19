@@ -50,4 +50,29 @@ const api = axios.create({
     }
 }
 
-export {getTrendingMoviesPreview,getCategoriesPreview}
+async function getCategorySelected(){
+    try {
+        const {data, status} = await api.get(`/trending/movie/day`)
+        const movies= data.results;
+        const trendingContanier = [];
+        const allTreding = document.getElementById('activeMoviesSelected');
+        movies.forEach(movie => {
+           const movieContainer = document.createElement('div');
+           movieContainer.classList.add('post-movie');
+           const imgMovie = document.createElement('img');
+           imgMovie.src = 'https://image.tmdb.org/t/p/w300'+ movie.poster_path
+           imgMovie.setAttribute('alt', movie.title);  
+           const averageMovie = document.createElement('p');
+           averageMovie.innerHTML= 'date: ' + movie.release_date;
+           
+           movieContainer.append(imgMovie, averageMovie);
+           trendingContanier.push(movieContainer)
+        });
+        allTreding.append(...trendingContanier)
+    } catch (error) {
+         throw Error(error) 
+    }
+};
+
+
+export {getTrendingMoviesPreview,getCategoriesPreview, getCategorySelected}

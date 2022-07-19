@@ -1,4 +1,4 @@
-import {getCategoriesPreview, getTrendingMoviesPreview} from './axios.js'
+import {getCategoriesPreview, getTrendingMoviesPreview, getCategorySelected} from './axios.js'
 window.addEventListener('DOMContentLoaded', navigation, false);
 window.addEventListener('hashchange', navigation, false);
 
@@ -23,6 +23,7 @@ function homePage(){
     console.log('Home')
     getTrendingMoviesPreview()
     getCategoriesPreview()
+    getCategorySelected()
 }
 function categoriesPage(){
     console.log('categories') 
