@@ -1,4 +1,5 @@
 import {getCategoriesPreview, getTrendingMoviesPreview, getCategorySelected} from './axios.js'
+import * as variables from './nodes.js'
 window.addEventListener('DOMContentLoaded', navigation, false);
 window.addEventListener('hashchange', navigation, false);
 
@@ -24,9 +25,13 @@ function homePage(){
     getTrendingMoviesPreview()
     getCategoriesPreview()
     getCategorySelected()
+    variables.trendingMoviesContainer.classList.remove('inactive')
+    variables.categorySelected.classList.add('inactive')
 }
 function categoriesPage(){
     console.log('categories') 
+    variables.trendingMoviesContainer.classList.add('inactive')
+    variables.categorySelected.classList.remove('inactive')
 }
 function searchPage(){
     console.log('vista de busqueda') 
