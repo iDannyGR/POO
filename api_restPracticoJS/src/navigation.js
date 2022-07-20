@@ -25,8 +25,8 @@ function homePage(){
     getTrendingMoviesPreview()
     getCategoriesPreview()
     getCategorySelected()
-    variables.trendingMoviesContainer.classList.remove('inactive')
-    variables.categorySelected.classList.add('inactive')
+    //variables.trendingMoviesContainer.classList.remove('inactive')
+    //variables.categorySelected.classList.add('inactive')
 }
 function categoriesPage(){
     console.log('categories') 

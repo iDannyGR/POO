@@ -209,6 +209,12 @@ footer a{
     overflow-x:none;
     overflow-y: auto;
 }
+/* movie detail */
+#movieDetails{
+    margin: 0;
+    padding: 0;
+}
+#movieDetails
 /*general options*/
 .inactive{
     display:none;
