@@ -30,8 +30,8 @@ function homePage(){
 }
 function categoriesPage(){
     console.log('categories') 
-    variables.trendingMoviesContainer.classList.add('inactive')
-    variables.categorySelected.classList.remove('inactive')
+   // variables.trendingMoviesContainer.classList.add('inactive')
+    //variables.categorySelected.classList.remove('inactive')
 }
 function searchPage(){
     console.log('vista de busqueda') 
