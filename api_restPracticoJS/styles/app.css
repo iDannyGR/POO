@@ -242,7 +242,7 @@ footer a{
    margin: 10px auto;
 }
 .movieDetail-description{
-    margin: auto;
+    margin:  10% 0 10% 0;
     padding: 10px;
     text-align: justify;
     line-height: 30px;
@@ -265,14 +265,17 @@ footer a{
 .relatedMovies-container .relatedMovies-title{
     margin:24px;
 }
-.categories-list{
+
+#movieSelectedCategory{
     display: flex;
     justify-content: center;
 }
-.categories-list h3{
+#movieSelectedCategory h3{
     margin:12px 12px 12px 12px;
     padding:12px;
-    border: 1px solid white;
+    font-size: 0.8em;
+    background-color: rgb(14, 99, 156);
+    border-radius: 3% 30% 0% 30%;
 }
 .relatedMovies-scrollContainer img{
     width: 150px;
