@@ -225,8 +225,7 @@ footer a{
     position: relative;
     border-radius: 10px;
     box-shadow: 0 0 10px black inset;
-    background: rgba(135, 130, 133, 0.19);
-    
+    background: rgba(135, 130, 133, 0.19);    
 }
 .main-section__movieDetail img{
     width: 100%;
@@ -256,6 +255,7 @@ footer a{
     height: 40px;
     background-color: rgb(14, 99, 156);
     border-radius: 0% 25% 0% 50%;
+    box-shadow: 0px 0px 5px black inset;
     padding: 5px;
 }
 .main-section__movieDetail div:first-child{
@@ -274,8 +274,9 @@ footer a{
     margin:12px 12px 12px 12px;
     padding:12px;
     font-size: 0.8em;
-    background-color: rgb(14, 99, 156);
-    border-radius: 3% 30% 0% 30%;
+    background: rgb(14, 99, 156);
+    box-shadow: 0px 0px 7px black inset;
+    border-radius: 2% 2%;
 }
 .relatedMovies-scrollContainer img{
     width: 150px;
