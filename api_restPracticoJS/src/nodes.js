@@ -1,3 +1,14 @@
- export const categoriesContainer = document.getElementById('categoriesContainer')
- export const trendingMoviesContainer= document.getElementById('trendingMoviesContainer')
- export const categorySelected = document.getElementById('categorySelectedContainer')
+ const $ = (id)=> document.getElementById(id)
+
+ export const categoriesContainer = $('categoriesContainer')
+ export const trendingMoviesContainer= $('trendingMoviesContainer')
+ export const categorySelected = $('categorySelectedContainer')
+ export const movieSelected = $('movieDetails')
+ export const searchForm = $('searchForm')
+ export const searchButton = $('searchButton')
+
+
+//main div for fill movies
+ export const allTreding = $('trendingMovies')
+ export const activeCategorySelected = $('activeMoviesSelected') 
+ export const titleArea = $('header-category__title') //title of selected category

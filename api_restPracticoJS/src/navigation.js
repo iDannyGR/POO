@@ -1,8 +1,13 @@
-import {getCategoriesPreview, getTrendingMoviesPreview, getCategorySelected} from './axios.js'
-import * as variables from './nodes.js'
+//import and executing firts events 
+import {getCategoriesPreview, fillMovies} from './axios.js'
+import * as variables from './nodes.js';
 window.addEventListener('DOMContentLoaded', navigation, false);
 window.addEventListener('hashchange', navigation, false);
+variables.searchButton.addEventListener('click', ()=>{ // adding and event click to global search button 
+    location.hash='#search=';
+} )
 
+//the navigation !!!!
 function navigation(){
     console.log({location})
     
@@ -16,29 +21,55 @@ function navigation(){
      categoriesPage()
    }else {
     homePage()
-    
-   }
+    }
 }
 
+
+//executing funtions when the users selected a sections or movies
 function homePage(){
     console.log('Home')
-    getTrendingMoviesPreview()
+    fillMovies('/trending/movie/day', variables.allTreding)
     getCategoriesPreview()
-    getCategorySelected()
-    //variables.trendingMoviesContainer.classList.remove('inactive')
-    //variables.categorySelected.classList.add('inactive')
+    variables.categoriesContainer.classList.remove('inactive')
+    variables.trendingMoviesContainer.classList.remove('inactive')
+    variables.movieSelected.classList.add('inactive')
 }
+
 function categoriesPage(){
-    console.log('categories') 
-   // variables.trendingMoviesContainer.classList.add('inactive')
-    //variables.categorySelected.classList.remove('inactive')
+    variables.categorySelected.classList.remove('inactive')
+    variables.categoriesContainer.classList.add('inactive')
+    variables.trendingMoviesContainer.classList.add('inactive')
+    variables.movieSelected.classList.add('inactive')
+    
+    const [_, categoryData]= location.hash.split('=') //['#category', 'id-name'] /show movies by category selected
+    const [categoryId, categoryName] = categoryData.split('-')
+    
+    fillMovies('discover/movie', variables.activeCategorySelected, {
+        params:{
+            with_genres: categoryId}
+        })
+    variables.titleArea.innerHTML = categoryName
 }
+
 function searchPage(){
     console.log('vista de busqueda') 
+    variables.movieSelected.classList.add('inactive')
+    variables.categoriesContainer.classList.add('inactive')
+    variables.categorySelected.classList.add('inactive')
+    variables.trendingMoviesContainer.classList.add('inactive')
 }
+
 function trendsPages(){
     console.log('trends') 
+
 }
+
 function movieDetails(){
     console.log('Movie') 
+    variables.movieSelected.classList.remove('inactive')
+
+    variables.categoriesContainer.classList.add('inactive')
+    variables.categorySelected.classList.add('inactive')
+    variables.trendingMoviesContainer.classList.add('inactive')
+
 }

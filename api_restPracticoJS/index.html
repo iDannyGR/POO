@@ -23,14 +23,14 @@
             <li><a href="">Movies</a></li>
             <li><a href="">Profile</a></li>
         </ul>
-        <form action="" class="search-box">
+        <form class="search-box" id="searchForm">
              <!-- search --> 
-         <input type="text" name="search-btn" class="search-btn" placeholder="Search Movie">
-         <button type="submit">Search</button>
+         <input type="text" class="search-btn" placeholder="Search Movie">
+         <button id="searchButton">Search</button>
         </form>
      </nav>
     <main class="main">
-        <section class="main-section inactive" id="categoriesContainer">
+        <section class="main-section" id="categoriesContainer">
             <h2 class="main-title__section">Categories</h2>
             <div class="main-categories_movies" id="categoriesMovies">
                 <!-- categories area --> 
@@ -38,19 +38,19 @@
                </ul>
             </div>
     </section>
-        <section class="main-section inactive" id="trendingMoviesContainer">
+        <section class="main-section" id="trendingMoviesContainer">
                 <h2 class="main-title__section">Trending Movies</h2>
                 <div class="main-trending_movies" id="trendingMovies">
                     <!-- trending movies area --> 
                 </div>
         </section>
         <section class="main-section inactive" id="categorySelectedContainer">
-            <h2 class="main-title__section">Action Movies</h2>
+            <h2 class="main-title__section" id="header-category__title"></h2>
             <div class="main-active_movies" id="activeMoviesSelected">
                 <!-- load category selected area --> 
             </div>
         </section>
-        <section class="main-section" id="movieDetails">
+        <section class="main-section inactive" id="movieDetails">
              <!-- movie details selected --> 
              <article class="main-section__movieDetail">
                 <div>
