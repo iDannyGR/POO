@@ -4,8 +4,9 @@
  export const trendingMoviesContainer= $('trendingMoviesContainer')
  export const categorySelected = $('categorySelectedContainer')
  export const movieSelected = $('movieDetails')
- export const searchForm = $('searchForm')
+ export const searchForm = $('searchForm').querySelector('input')
  export const searchButton = $('searchButton')
+ export const searchContainer = $('searchMovieContainer')
 
 
 //main div for fill movies

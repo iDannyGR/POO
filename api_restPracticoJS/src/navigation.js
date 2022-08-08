@@ -4,7 +4,7 @@ import * as variables from './nodes.js';
 window.addEventListener('DOMContentLoaded', navigation, false);
 window.addEventListener('hashchange', navigation, false);
 variables.searchButton.addEventListener('click', ()=>{ // adding and event click to global search button 
-    location.hash='#search=';
+    location.hash=`#search=${variables.searchForm.value}`;
 } )
 
 //the navigation !!!!
@@ -57,6 +57,9 @@ function searchPage(){
     variables.categoriesContainer.classList.add('inactive')
     variables.categorySelected.classList.add('inactive')
     variables.trendingMoviesContainer.classList.add('inactive')
+    variables.searchContainer.classList.remove('inactive')
+
+    const [_ , searchData] = location.hash.split('=')
 }
 
 function trendsPages(){
