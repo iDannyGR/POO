@@ -4,11 +4,15 @@
  export const trendingMoviesContainer= $('trendingMoviesContainer')
  export const categorySelected = $('categorySelectedContainer')
  export const movieSelected = $('movieDetails')
+ export const movieContainer1 = $('movieDetails').querySelector('.main-section__movieDetail')
+ export const movieContainer2 = $('movieDetails').querySelector('.relatedMovies-container')
+ export const movieRelatedCategories = $('movieSelectedCategory')
  export const searchMoviesContainer = $('searchMovieContainer')
 
  //the form data for a search
  export const searchForm = $('searchForm').querySelector('input')
  export const searchButton = $('searchButton')
+ export const backButton = $('historyBack')
 
 
 //main div for fill movies

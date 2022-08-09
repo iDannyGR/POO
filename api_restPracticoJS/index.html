@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>THE API MOVIES</title>
     <link rel="stylesheet" href="./styles/app.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
     <header class="header">
@@ -51,40 +52,13 @@
             </div>
         </section>
         <section class="main-section inactive" id="searchMovieContainer">
-            <h2 class="main-title__section" id="header-category__title">Search related</h2>
+            <h2 class="main-title__section" id="header-category__title"> <i class="material-icons" id="historyBack">arrow_back</i>History to Search</h2>
             <div class="main-search__movie" id="searchContainer">
                 <!-- search movie container--> 
             </div>
     </section>
         <section class="main-section inactive" id="movieDetails">
              <!-- movie details selected --> 
-             <article class="main-section__movieDetail">
-                <div>
-                    <img src="https://pics.filmaffinity.com/Deadpool-777527803-large.jpg" alt="" />
-                </div>
-                <div>
-                    <h1 class="movieDetail-title">Deadpool</h1>
-                    <span class="movieDetail-score">7.6</span>
-                    <p class="movieDetail-description">
-                      Wisecracking mercenary Deadpool battles the evil and powerful Cable and other bad guys to save a boy's life.
-                    </p>
-                    <div id="movieSelectedCategory">
-                        <h3>Romance</h3>  
-                        <h3>Drama</h3>
-                        <h3>Acción</h3>
-                    </div>
-                  
-                </div> 
-                <!-- related movies --> 
-             </article>
-                <article class="relatedMovies-container">
-                  <h2 class="relatedMovies-title">Related Movies</h2>
-                  <div class="relatedMovies-scrollContainer">
-                      <img src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"/> 
-                      <img src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"/>
-                      <img src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"/>
-                  </div>
-                </article>
         </section>
         
     </main>

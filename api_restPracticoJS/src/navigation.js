@@ -1,10 +1,10 @@
 //import and executing firts events 
-import {getCategoriesPreview, fillMovies} from './axios.js'
+import {getCategoriesPreview, fillMovies, getMovieById} from './axios.js'
 import * as variables from './nodes.js';
 window.addEventListener('DOMContentLoaded', navigation, false);
 window.addEventListener('hashchange', navigation, false);
 variables.searchButton.addEventListener('click', ()=>{ // adding and event click to global search button 
-    location.hash=`#search=${variables.searchForm.value}`;
+    location.hash=`#search=${variables.searchForm.value.trim('')}`;
 } )
 
 //the navigation !!!!
@@ -58,9 +58,15 @@ function searchPage(){
     variables.categorySelected.classList.add('inactive')
     variables.trendingMoviesContainer.classList.add('inactive')
     variables.searchMoviesContainer.classList.remove('inactive')
-
+   
+    //catch the url search and split for send the query 
     const [_ , query] = location.hash.split('=')
     fillMovies( 'search/movie', variables.searchContainer ,{params:{query}})
+
+      //add history search to arrow button in search page
+      variables.backButton.addEventListener('click', ()=> {
+        window.history.back();
+    })
 }
 
 function trendsPages(){
@@ -69,11 +75,14 @@ function trendsPages(){
 }
 
 function movieDetails(){
+    window.scrollTo = (0, 0)
     console.log('Movie') 
     variables.movieSelected.classList.remove('inactive')
 
     variables.categoriesContainer.classList.add('inactive')
     variables.categorySelected.classList.add('inactive')
     variables.trendingMoviesContainer.classList.add('inactive')
-
+        const [_ , idMovieData] = location.hash.split('=')
+    
+    getMovieById(idMovieData, variables.movieSelected)
 }

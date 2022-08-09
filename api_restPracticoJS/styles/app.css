@@ -198,7 +198,7 @@ footer a{
     text-decoration: none;
     color: purple;
 }
-/* category selected */
+/* category selected  and search */
 .main-active_movies, .main-search__movie{
     width:960px;
     height:600px;
@@ -209,6 +209,10 @@ footer a{
     flex-wrap: wrap;
     overflow-x:none;
     overflow-y: auto;
+}
+/*back to history search button*/
+#historyBack{
+    cursor:pointer;
 }
 /* movie detail */
 #movieDetails{
