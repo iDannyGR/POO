@@ -152,13 +152,13 @@ nav input[type="text"]{
     border-radius: 100px;
     background-color: white;
 }
-.main-active_movies::-webkit-scrollbar{
+.main-active_movies::-webkit-scrollbar, .main-search__movie::-webkit-scrollbar{
     width: 5px;
 }
-.main-active_movies::-webkit-scrollbar-track{
+.main-active_movies::-webkit-scrollbar-track, .main-search__movie::-webkit-scrollbar-track{
     border-radius: 100px;
 }
-.main-active_movies::-webkit-scrollbar-thumb{
+.main-active_movies::-webkit-scrollbar-thumb, .main-search__movie::-webkit-scrollbar-thumb{
     border-radius: 100px;
     background-color: white;
 }
@@ -199,7 +199,7 @@ footer a{
     color: purple;
 }
 /* category selected */
-.main-active_movies{
+.main-active_movies, .main-search__movie{
     width:960px;
     height:600px;
     display: flex;

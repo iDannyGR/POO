@@ -57,9 +57,10 @@ function searchPage(){
     variables.categoriesContainer.classList.add('inactive')
     variables.categorySelected.classList.add('inactive')
     variables.trendingMoviesContainer.classList.add('inactive')
-    variables.searchContainer.classList.remove('inactive')
+    variables.searchMoviesContainer.classList.remove('inactive')
 
-    const [_ , searchData] = location.hash.split('=')
+    const [_ , query] = location.hash.split('=')
+    fillMovies( 'search/movie', variables.searchContainer ,{params:{query}})
 }
 
 function trendsPages(){
