@@ -47,8 +47,7 @@ async function fillMovies(path, container, optionalParams={}){
            imgMovie.src = 'https://image.tmdb.org/t/p/w300'+ movie.poster_path
            imgMovie.setAttribute('alt', movie.title);  
            const averageMovie = document.createElement('p');
-           averageMovie.innerHTML= 'date: ' + movie.release_date;
-           
+           averageMovie.innerHTML= 'date: ' + movie.release_date; 
            movieContainer.append(imgMovie, averageMovie);
            fillContainer.push(movieContainer)
         });
@@ -62,31 +61,9 @@ async function getMovieById(id, container){
         try {
         const {status, data} =await  api.get(`movie/${id}`)  
         console.log(data)  
-        container.innerHTML= `  <article class="main-section__movieDetail">
-                        <div>
-                            <img src='https://image.tmdb.org/t/p/w300${data.poster_path}' alt="" />
-                        </div>
-                        <div>
-                            <h1 class="movieDetail-title">${data.title}</h1>
-                            <span class="movieDetail-score">${data.vote_average.toFixed(1)}</span>
-                            <p class="movieDetail-description">${data.overview}</p>
-                                <div id="movieSelectedCategory">
-                                    <h3>Romance</h3>  
-                                     <h3>Drama</h3>
-                                    <h3>Acción</h3>
-                                </div>
-                        </div> 
-        <!-- related movies --> 
-     </article>
-     </article>
-                <article class="relatedMovies-container">
-                  <h2 class="relatedMovies-title">Related Movies</h2>
-                  <div class="relatedMovies-scrollContainer">
-                      <img src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"/> 
-                      <img src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"/>
-                      <img src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"/>
-                  </div>
-                </article>`
+        container.innerHTML= `  `
+            console.log(data)
+
     } catch (error) {
          throw Error(error) 
     }

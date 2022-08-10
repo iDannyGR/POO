@@ -82,6 +82,8 @@ function movieDetails(){
     variables.categoriesContainer.classList.add('inactive')
     variables.categorySelected.classList.add('inactive')
     variables.trendingMoviesContainer.classList.add('inactive')
+    variables.searchMoviesContainer.classList.add('inactive')
+    
         const [_ , idMovieData] = location.hash.split('=')
     
     getMovieById(idMovieData, variables.movieSelected)
