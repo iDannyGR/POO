@@ -78,7 +78,6 @@ function movieDetails(){
     window.scrollTo = (0, 0)
     console.log('Movie') 
     variables.movieSelected.classList.remove('inactive')
-
     variables.categoriesContainer.classList.add('inactive')
     variables.categorySelected.classList.add('inactive')
     variables.trendingMoviesContainer.classList.add('inactive')

@@ -38,7 +38,7 @@
                <ul class="categoryList" id="categoryList">
                </ul>
             </div>
-    </section>
+        </section>
         <section class="main-section" id="trendingMoviesContainer">
                 <h2 class="main-title__section">Trending Movies</h2>
                 <div class="main-trending_movies" id="trendingMovies">
@@ -56,18 +56,18 @@
             <div class="main-search__movie" id="searchContainer">
                 <!-- search movie container--> 
             </div>
-    </section>
+        </section>
         <section class="main-section inactive" id="movieDetails">
              <!-- movie details selected --> 
-             <article class="main-section__movieDetail">
+             <article class="main-section__movieDetail" id="movieDetails_content">
                 <div>
                     <img src='https://image.tmdb.org/t/p/w300${data.poster_path}' alt="" />
                 </div>
                 <div>
-                    <h1 class="movieDetail-title">pinga loca</h1>
-                    <span class="movieDetail-score">l10</span>
-                    <p class="movieDetail-description">la mera verga en salsa</p>
-                        <div id="movieSelectedCategory">
+                    <h1 class="movieDetail-title" id="movieDetail-title">pinga loca</h1>
+                    <span class="movieDetail-score" id="movieDetail-score">l10</span>
+                    <p class="movieDetail-description" id="movieDetail-description">la mera verga en salsa</p>
+                        <div id="movieRelatedCategory">
                             <h3>Romance</h3>  
                              <h3>Drama</h3>
                             <h3>Acción</h3>
@@ -75,17 +75,15 @@
                 </div> 
 <!-- related movies --> 
             </article>
-        <article class="relatedMovies-container">
+        <article class="relatedMovies-container" id="movieDetails_RelatedMovies">
           <h2 class="relatedMovies-title">Related Movies</h2>
           <div class="relatedMovies-scrollContainer">
-
               <img src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"/> 
               <img src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"/>
               <img src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"/>
           </div>
         </article>
-        </section>
-        
+        </section>    
     </main>
     <footer class="footer">
         <a href="" class="footer_link">site by The movie DB</a> 

@@ -61,9 +61,7 @@ async function getMovieById(id, container){
         try {
         const {status, data} =await  api.get(`movie/${id}`)  
         console.log(data)  
-        container.innerHTML= `  `
-            console.log(data)
-
+       
     } catch (error) {
          throw Error(error) 
     }
