@@ -7,6 +7,10 @@
  export const movieRelatedCategories = $('movieSelectedCategory')
  export const searchMoviesContainer = $('searchMovieContainer')
 
+ //list of categories
+ export const categoryList = $('categoryList')
+
+
  //the form data for a search
  export const searchForm = $('searchForm').querySelector('input')
  export const searchButton = $('searchButton')
@@ -24,7 +28,7 @@
  export const movieSelected = $('movieDetails')
  export const movieContainer1 = $('movieDetails_content')
  export const movieContainer2 = $('movieDetails_RelatedMovies')
- export const movieDetailTitle = $1('movieDetail-title')
- export const movieDetailScore = $1('movieDetail-score')
- export const movieDetailDescription = $1('movieDetail-description')
- export const movieRelatedCategory = $1('movieRelatedCategory')
+ export const movieDetailTitle = $1('.movieDetail-title')
+ export const movieDetailScore = $1('.movieDetail-score')
+ export const movieDetailDescription = $1('.movieDetail-description')
+ export const movieRelatedCategory = $('movieRelatedCategory')

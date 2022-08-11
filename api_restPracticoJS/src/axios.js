@@ -1,4 +1,5 @@
 import {API_KEY} from './env.js'
+const IMG = 'https://image.tmdb.org/t/p/w300'
 const api = axios.create({
     baseURL : 'https://api.themoviedb.org/3/',
     params:{
@@ -6,36 +7,34 @@ const api = axios.create({
     }
 });
 
- async function getCategoriesPreview(){
-    try {
-        const {data, status} = await api.get('genre/movie/list')
-        const categories = data.genres
-        const categoryContainer = document.getElementById('categoryList')
-        const listCategory = []
-        categoryContainer.replaceChildren()
-        categories.forEach(category => {
-                    const oneCategory = document.createElement('li')
-                    const categoryLink = document.createElement('a')
-                    categoryLink.setAttribute('id', 'id' + category.id)
-                    categoryLink.addEventListener('click', ()=>{
-                        location.hash = `#category=${category.id}-${category.name}`
-                    })
-                    categoryLink.innerHTML= category.name
-                    oneCategory.append(categoryLink)
-                    listCategory.push(oneCategory)
-        });
-        categoryContainer.append(...listCategory)
-    } catch (error) {
-        throw Error(error)
-    }
+//function for query to the API
+async function getData(path, params={}){
+    const {data} = await api.get(path, params)
+    return data
+}
+
+function createCategories(categories, container){
+    container.innerHTML= ''
+    const listCategory = []
+    categories.forEach(category => {
+                const oneCategory = document.createElement('li')
+                const categoryLink = document.createElement('a')
+                categoryLink.setAttribute('id', 'id' + category.id)
+                categoryLink.addEventListener('click', ()=>{
+                    location.hash = `#category=${category.id}-${category.name}`
+                })
+                categoryLink.innerHTML= category.name
+                oneCategory.append(categoryLink)
+                listCategory.push(oneCategory)
+    });
+    container.append(...listCategory)
+
 }
 
 //function fill container of movies
-async function fillMovies(path, container, optionalParams={}){
+ function fillMovies(movies, container){
     try {
-        container.replaceChildren()
-        const {data, status} = await api.get(path, optionalParams)        
-        const movies= data.results;
+        container.innerHTML = ''
         const fillContainer = [];
         movies.forEach(movie => {
            const movieContainer = document.createElement('div');
@@ -44,7 +43,7 @@ async function fillMovies(path, container, optionalParams={}){
                 location.hash = `#movie=${movie.id}`
            })
            const imgMovie = document.createElement('img');
-           imgMovie.src = 'https://image.tmdb.org/t/p/w300'+ movie.poster_path
+           imgMovie.src = IMG + movie.poster_path
            imgMovie.setAttribute('alt', movie.title);  
            const averageMovie = document.createElement('p');
            averageMovie.innerHTML= 'date: ' + movie.release_date; 
@@ -57,19 +56,52 @@ async function fillMovies(path, container, optionalParams={}){
     }
 };
 
-async function getMovieById(id, container, detail={}){
-        try {
-        const {status, data} =await  api.get(`movie/${id}`)  
-        
-        detail.data1.textContent= data.title
+async function getMovies(path, container, optionalParams={}){
+    try {
+       const data = getData(path, optionalParams)
+       fillMovies(data, container) 
+    } catch (error) {
+        throw Error(error)  
+    }
+   
+}
 
-       console.log(data)
+async function getCategoriesPreview(path, container){
+    try {
+        const data =await getData(path)
+        const categories = data.genres
+        createCategories(categories, container)
+    } catch (error) {
+        throw Error(error)
+    }
+}
+
+async function getMovieById(id, container, detail=[]){
+        try {
+        const {status, data} =await  api.get(`movie/${id}`) 
+        const imgContainer = document.createElement('div')
+        const img = document.createElement('img')
+        img.src = `${IMG}${data.poster_path}`
+        imgContainer.append(img)
+        container.append(imgContainer)
+        detail[0].textContent = data.title
+        detail[1].textContent= data.vote_average.toFixed(1)
+        detail[2].textContent = data.overview
+            console.log(data)
+       
+        data.genres.forEach(genre => {
+            const gen = document.createElement('li')
+            gen.textContent = genre.name
+            detail[3].append(gen)
+        })
+
+
     } catch (error) {
          throw Error(error) 
     }
 
 }
-export {getCategoriesPreview, fillMovies, getMovieById}
+export {getCategoriesPreview, getMovies, getMovieById}
 
 
 

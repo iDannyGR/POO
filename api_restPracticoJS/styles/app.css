@@ -226,18 +226,17 @@ footer a{
 }
 .main-section__movieDetail{
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
     position: relative;
     border-radius: 10px;
     box-shadow: 0 0 10px black inset;
     background: rgba(135, 130, 133, 0.19);    
 }
 .main-section__movieDetail img{
+    display: block;
     width: 300px;
     height: 400px;
-    object-fit:fill;
     border-radius: 10px 0 0 10px;
-    box-shadow: 0px 0px 12px black inset ;
 }
 .movieDetail-title{
     font-family: var(--font-theme);

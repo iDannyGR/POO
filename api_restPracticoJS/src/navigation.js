@@ -1,5 +1,5 @@
 //import and executing firts events 
-import {getCategoriesPreview, fillMovies, getMovieById} from './axios.js'
+import {getCategoriesPreview, getMovies, getMovieById} from './axios.js'
 import * as variables from './nodes.js';
 window.addEventListener('DOMContentLoaded', navigation, false);
 window.addEventListener('hashchange', navigation, false);
@@ -28,8 +28,9 @@ function navigation(){
 //executing funtions when the users selected a sections or movies
 function homePage(){
     console.log('Home')
-    fillMovies('/trending/movie/day', variables.allTreding)
-    getCategoriesPreview()
+    getMovies('/trending/movie/day', variables.allTreding)
+    getCategoriesPreview('/genre/movie/list', variables.categoryList)
+
     variables.categoriesContainer.classList.remove('inactive')
     variables.trendingMoviesContainer.classList.remove('inactive')
     variables.movieSelected.classList.add('inactive')
@@ -44,7 +45,7 @@ function categoriesPage(){
     const [_, categoryData]= location.hash.split('=') //['#category', 'id-name'] /show movies by category selected
     const [categoryId, categoryName] = categoryData.split('-')
     
-    fillMovies('discover/movie', variables.activeCategorySelected, {
+    getMovies('discover/movie', variables.activeCategorySelected, {
         params:{
             with_genres: categoryId}
         })
@@ -61,7 +62,7 @@ function searchPage(){
    
     //catch the url search and split for send the query 
     const [_ , query] = location.hash.split('=')
-    fillMovies( 'search/movie', variables.searchContainer ,{params:{query}})
+    getMovies( 'search/movie', variables.searchContainer ,{params:{query}})
 
       //add history search to arrow button in search page
       variables.backButton.addEventListener('click', ()=> {
@@ -84,6 +85,5 @@ function movieDetails(){
     variables.searchMoviesContainer.classList.add('inactive')
     
         const [_ , idMovieData] = location.hash.split('=')
-    
-    getMovieById(idMovieData, variables.movieContainer1, {data1:variables.movieDetailTitle,data2:variables.movieDetailDescription,data3:variables.movieDetailScore})
+    getMovieById(idMovieData, variables.movieContainer1,[variables.movieDetailTitle, variables.movieDetailScore, variables.movieDetailDescription, variables.movieRelatedCategory])
 }
