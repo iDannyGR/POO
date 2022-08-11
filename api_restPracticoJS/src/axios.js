@@ -57,11 +57,13 @@ async function fillMovies(path, container, optionalParams={}){
     }
 };
 
-async function getMovieById(id, container){
+async function getMovieById(id, container, detail={}){
         try {
         const {status, data} =await  api.get(`movie/${id}`)  
-        console.log(data)  
-       
+        
+        detail.data1.textContent= data.title
+
+       console.log(data)
     } catch (error) {
          throw Error(error) 
     }

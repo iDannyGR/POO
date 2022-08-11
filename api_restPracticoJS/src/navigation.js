@@ -85,5 +85,5 @@ function movieDetails(){
     
         const [_ , idMovieData] = location.hash.split('=')
     
-    getMovieById(idMovieData, variables.movieSelected)
+    getMovieById(idMovieData, variables.movieContainer1, {data1:variables.movieDetailTitle,data2:variables.movieDetailDescription,data3:variables.movieDetailScore})
 }
