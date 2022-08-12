@@ -32,3 +32,5 @@
  export const movieDetailScore = $1('.movieDetail-score')
  export const movieDetailDescription = $1('.movieDetail-description')
  export const movieRelatedCategory = $('movieRelatedCategory')
+ export const imgMovieDetails = $('imgMovieDetails')
+ export const relatedMoviesScrollContainer = $('relatedMoviesScrollContainer')

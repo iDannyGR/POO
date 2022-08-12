@@ -58,12 +58,12 @@ function createCategories(categories, container){
 
 async function getMovies(path, container, optionalParams={}){
     try {
-       const data = getData(path, optionalParams)
-       fillMovies(data, container) 
+       const data =await getData(path, optionalParams)
+       const movies = data.results
+       fillMovies(movies, container) 
     } catch (error) {
         throw Error(error)  
     }
-   
 }
 
 async function getCategoriesPreview(path, container){
@@ -76,26 +76,15 @@ async function getCategoriesPreview(path, container){
     }
 }
 
-async function getMovieById(id, container, detail=[]){
+async function getMovieById(id, detail=[]){
         try {
-        const {status, data} =await  api.get(`movie/${id}`) 
-        const imgContainer = document.createElement('div')
-        const img = document.createElement('img')
-        img.src = `${IMG}${data.poster_path}`
-        imgContainer.append(img)
-        container.append(imgContainer)
+        const data =await  getData(`movie/${id}`) 
         detail[0].textContent = data.title
         detail[1].textContent= data.vote_average.toFixed(1)
         detail[2].textContent = data.overview
-            console.log(data)
-       
-        data.genres.forEach(genre => {
-            const gen = document.createElement('li')
-            gen.textContent = genre.name
-            detail[3].append(gen)
-        })
-
-
+        detail[3].src = `${IMG}${data.poster_path}`
+        createCategories(data.genres, detail[4])
+             
     } catch (error) {
          throw Error(error) 
     }
