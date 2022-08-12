@@ -1,0 +1,16 @@
+{
+  "name": "api_restpracticojs",
+  "version": "1.0.0",
+  "description": "//CURSO PRATICO DE CONSUMO DE API REST CON JAVACRIPT",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.html"
+  },
+  "keywords": [],
+  "author": "iDany",
+  "license": "MIT",
+  "dependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
