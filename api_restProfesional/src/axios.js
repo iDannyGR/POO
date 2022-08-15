@@ -12,6 +12,10 @@ async function getData(path, params={}){
     const {data} = await api.get(path, params)
     return data
 }
+function removeSkeleton(container){
+    window.setTimeout()
+    container.classList.remove('loading')
+}
 
 function createCategories(categories, container){
     container.innerHTML= ''
@@ -43,9 +47,11 @@ function createCategories(categories, container){
                 location.hash = `#movie=${movie.id}`
            })
            const imgMovie = document.createElement('img');
+           const averageMovie = document.createElement('p');
+           
+
            imgMovie.src = IMG + movie.poster_path
            imgMovie.setAttribute('alt', movie.title);  
-           const averageMovie = document.createElement('p');
            averageMovie.innerHTML= 'date: ' + movie.release_date; 
            movieContainer.append(imgMovie, averageMovie);
            fillContainer.push(movieContainer)
@@ -76,14 +82,14 @@ async function getCategoriesPreview(path, container){
     }
 }
 
-async function getMovieById(id, detail=[]){
+async function getMovieById(id, container ){  //detail=[]
         try {
         const data =await  getData(`movie/${id}`) 
-        detail[0].textContent = data.title
-        detail[1].textContent= data.vote_average.toFixed(1)
-        detail[2].textContent = data.overview
-        detail[3].src = `${IMG}${data.poster_path}`
-        createCategories(data.genres, detail[4])
+        container.querySelector('.movieDetail-title').textContent = data.title
+        container.querySelector('.movieDetail-score').textContent= data.vote_average.toFixed(1)
+        container.querySelector('.movieDetail-description').textContent = data.overview
+        container.getElementsByTagName('img')[0].src = `${IMG}${data.poster_path}`
+        createCategories(data.genres, container.querySelector('.categoryList'))
              
     } catch (error) {
          throw Error(error) 
@@ -92,5 +98,8 @@ async function getMovieById(id, detail=[]){
 }
 export {getCategoriesPreview, getMovies, getMovieById}
 
-
+// detail[0].textContent = data.title
+// detail[1].textContent= data.vote_average.toFixed(1)
+// detail[2].textContent = data.overview
+// detail[3].src = `${IMG}${data.poster_path}`
 

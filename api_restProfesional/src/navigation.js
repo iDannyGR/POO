@@ -84,6 +84,7 @@ function movieDetails(){
     variables.trendingMoviesContainer.classList.add('inactive')
     variables.searchMoviesContainer.classList.add('inactive')
         const [_ , idMovieData] = location.hash.split('=')
-    getMovieById(idMovieData, [variables.movieDetailTitle, variables.movieDetailScore, variables.movieDetailDescription, variables.imgMovieDetails, variables.movieRelatedCategory])
+    getMovieById(idMovieData, variables.movieContainer1 )
     getMovies(`/movie/${idMovieData}/similar`, variables.relatedMoviesScrollContainer)
 }
+//[variables.movieDetailTitle, variables.movieDetailScore, variables.movieDetailDescription, variables.imgMovieDetails, variables.movieRelatedCategory]
