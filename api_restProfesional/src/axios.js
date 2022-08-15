@@ -12,10 +12,22 @@ async function getData(path, params={}){
     const {data} = await api.get(path, params)
     return data
 }
-function removeSkeleton(container){
-    window.setTimeout()
-    container.classList.remove('loading')
+
+function createObserver() {
+    return new IntersectionObserver((elements) => {
+        elements.forEach(element => {
+            if (element.isIntersecting)
+                element.target.setAttribute(
+                    'src',
+                    element.target.dataset.img
+                )
+        })
+    })
 }
+
+//creo el observer,.
+let observer = createObserver()
+
 
 function createCategories(categories, container){
     container.innerHTML= ''
@@ -48,9 +60,11 @@ function createCategories(categories, container){
            })
            const imgMovie = document.createElement('img');
            const averageMovie = document.createElement('p');
-           
-
-           imgMovie.src = IMG + movie.poster_path
+           imgMovie.setAttribute(
+            'data-img',
+            IMG + movie.poster_path)    
+            observer.observe(imgMovie)
+           //imgMovie.src = IMG + movie.poster_path
            imgMovie.setAttribute('alt', movie.title);  
            averageMovie.innerHTML= 'date: ' + movie.release_date; 
            movieContainer.append(imgMovie, averageMovie);
