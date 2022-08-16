@@ -19,7 +19,7 @@ function createObserver() {
             if (element.isIntersecting)
                 element.target.setAttribute(
                     'src',
-                    element.target.dataset.img
+                    element.target.dataset.id
                 )
         })
     })
@@ -43,6 +43,7 @@ function createCategories(categories, container){
                 oneCategory.append(categoryLink)
                 listCategory.push(oneCategory)
     });
+    
     container.append(...listCategory)
 
 }
@@ -60,9 +61,7 @@ function createCategories(categories, container){
            })
            const imgMovie = document.createElement('img');
            const averageMovie = document.createElement('p');
-           imgMovie.setAttribute(
-            'data-img',
-            IMG + movie.poster_path)    
+           imgMovie.setAttribute('data-id', IMG + movie.poster_path)    
             observer.observe(imgMovie)
            //imgMovie.src = IMG + movie.poster_path
            imgMovie.setAttribute('alt', movie.title);  
