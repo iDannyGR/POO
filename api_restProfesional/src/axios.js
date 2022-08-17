@@ -16,11 +16,9 @@ async function getData(path, params={}){
 function createObserver() {
     return new IntersectionObserver((elements) => {
         elements.forEach(element => {
-            if (element.isIntersecting)
-                element.target.setAttribute(
-                    'src',
-                    element.target.dataset.id
-                )
+            if (element.isIntersecting){
+                element.target.setAttribute('src', element.target.dataset.id)}
+                
         })
     })
 }
@@ -61,10 +59,16 @@ function createCategories(categories, container){
            })
            const imgMovie = document.createElement('img');
            const averageMovie = document.createElement('p');
-           imgMovie.setAttribute('data-id', IMG + movie.poster_path)    
+           if (movie.poster_path) {
+            imgMovie.setAttribute('data-id', IMG + movie.poster_path)
+           }else{
+            
+           }
+           
+
             observer.observe(imgMovie)
            //imgMovie.src = IMG + movie.poster_path
-           imgMovie.setAttribute('alt', movie.title);  
+           imgMovie.setAttribute('alt', movie.title);  //en setAttribute se puede agregar logica de programacion
            averageMovie.innerHTML= 'date: ' + movie.release_date; 
            movieContainer.append(imgMovie, averageMovie);
            fillContainer.push(movieContainer)

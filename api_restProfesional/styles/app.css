@@ -308,3 +308,7 @@ footer a{
 .inactive{
     display:none;
 }
+
+.empty {
+    background: black;
+}
