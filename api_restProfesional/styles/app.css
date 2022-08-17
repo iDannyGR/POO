@@ -308,7 +308,17 @@ footer a{
 .inactive{
     display:none;
 }
-
+.emptyMovie{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align:center;
+}
 .empty {
-    background: black;
+    background: rgba(34, 25, 25, 0.466);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    border-radius: 25px;
 }

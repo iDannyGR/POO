@@ -59,18 +59,17 @@ function createCategories(categories, container){
            })
            const imgMovie = document.createElement('img');
            const averageMovie = document.createElement('p');
-           if (movie.poster_path) {
+           if(movie.poster_path) {
             imgMovie.setAttribute('data-id', IMG + movie.poster_path)
-           }else{
-            
-           }
-           
-
-            observer.observe(imgMovie)
-           //imgMovie.src = IMG + movie.poster_path
            imgMovie.setAttribute('alt', movie.title);  //en setAttribute se puede agregar logica de programacion
-           averageMovie.innerHTML= 'date: ' + movie.release_date; 
+           averageMovie.innerHTML= 'date: ' + movie.release_date
            movieContainer.append(imgMovie, averageMovie);
+           }else{
+                movieContainer.classList.add('empty')
+                averageMovie.innerHTML = movie.title
+                movieContainer.append(averageMovie);
+           }
+           observer.observe(imgMovie)
            fillContainer.push(movieContainer)
         });
         container.append(...fillContainer)
@@ -102,12 +101,20 @@ async function getCategoriesPreview(path, container){
 async function getMovieById(id, container ){  //detail=[]
         try {
         const data =await  getData(`movie/${id}`) 
-        container.querySelector('.movieDetail-title').textContent = data.title
-        container.querySelector('.movieDetail-score').textContent= data.vote_average.toFixed(1)
-        container.querySelector('.movieDetail-description').textContent = data.overview
-        container.getElementsByTagName('img')[0].src = `${IMG}${data.poster_path}`
-        createCategories(data.genres, container.querySelector('.categoryList'))
-             
+            if(data.poster_path){
+                container.querySelector('.movieDetail-title').textContent = data.title
+                container.querySelector('.movieDetail-score').textContent= data.vote_average.toFixed(1)
+                container.querySelector('.movieDetail-description').textContent = data.overview
+                container.getElementsByTagName('img')[0].src = `${IMG}${data.poster_path}`
+                createCategories(data.genres, container.querySelector('.categoryList'))
+            }else{
+                container.removeChild(container.getElementsByTagName('img')[0])
+                container.classList.add('emptyMovie')
+                container.querySelector('.movieDetail-title').textContent = data.title
+                container.querySelector('.movieDetail-score').textContent= data.vote_average.toFixed(1)
+                container.querySelector('.movieDetail-description').textContent = 'No content / no Have any description'
+                createCategories(data.genres, container.querySelector('.categoryList'))
+            }             
     } catch (error) {
          throw Error(error) 
     }
