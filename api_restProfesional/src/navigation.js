@@ -34,6 +34,8 @@ function homePage(){
     variables.categoriesContainer.classList.remove('inactive')
     variables.trendingMoviesContainer.classList.remove('inactive')
     variables.movieSelected.classList.add('inactive')
+    variables.searchMoviesContainer.classList.add('inactive')
+    variables.categorySelected.classList.add('inactive')
 }
 
 function categoriesPage(){
