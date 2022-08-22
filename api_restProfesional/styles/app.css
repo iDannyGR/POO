@@ -103,7 +103,7 @@ nav input[type="text"]{
 /* section formating*/
 .main-title__section{
     padding: 0.5em;
-    margin: 30px 0 40px 0 ;
+    margin: 30px 0 20px 0 ;
 }
 .main-section{
     margin: auto;
@@ -142,6 +142,25 @@ nav input[type="text"]{
     flex-wrap: wrap;
     overflow-x:auto;
     overflow-y: none;
+}
+.trendMoviesBtn{
+    background:white;
+    color: black;
+    box-shadow: 0px 0px 10px white;
+    text-shadow: 0px 0px 5px black;
+    height: 35px;
+    float: right;
+    width: auto;
+    margin: 5px;
+    border-radius: 10px;
+    border: 1px solid white;
+    font-family: var(--font-theme);
+}
+.trendMoviesBtn:hover{
+    transform: scale(1.1);
+    transition: 0.6s;
+    box-shadow: 0px 0px 7px yellow;
+    cursor: pointer;
 }
 /*all scrollbar styles*/
 .main-trending_movies::-webkit-scrollbar{
