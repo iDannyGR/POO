@@ -3,6 +3,9 @@ import {getCategoriesPreview, getMovies, getMovieById} from './axios.js'
 import * as variables from './nodes.js';
 window.addEventListener('DOMContentLoaded', navigation, false);
 window.addEventListener('hashchange', navigation, false);
+variables.trendMoviesBtn.addEventListener('click', ()=>{
+        location.hash='#trends'
+} )
 variables.searchButton.addEventListener('click', ()=>{ // adding and event click to global search button 
     location.hash=`#search=${variables.searchForm.value.trim('')}`;
 } )
@@ -30,7 +33,7 @@ function homePage(){
     console.log('Home')
     getMovies('/trending/movie/day', variables.allTreding)
     getCategoriesPreview('/genre/movie/list', variables.categoryList)
-
+    
     variables.categoriesContainer.classList.remove('inactive')
     variables.trendingMoviesContainer.classList.remove('inactive')
     variables.movieSelected.classList.add('inactive')
@@ -74,6 +77,13 @@ function searchPage(){
 
 function trendsPages(){
     console.log('trends') 
+    getMovies('/trending/movie/day', variables.activeCategorySelected)
+
+    variables.categorySelected.classList.remove('inactive')
+    variables.categoriesContainer.classList.add('inactive')
+    variables.trendingMoviesContainer.classList.add('inactive')
+    variables.movieSelected.classList.add('inactive')
+    variables.titleArea.innerHTML = 'Trends'
 
 }
 

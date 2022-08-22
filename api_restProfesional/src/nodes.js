@@ -22,6 +22,7 @@
  export const activeCategorySelected = $('activeMoviesSelected') 
  export const searchContainer = $('searchContainer')
  export const titleArea = $('header-category__title') //title of selected category
+ export const trendMoviesBtn = $('trendMoviesBtn')
 
  //movie details
 

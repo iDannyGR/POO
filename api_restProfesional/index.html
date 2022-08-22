@@ -31,10 +31,10 @@
         </form>
      </nav>
     <main class="main">
+        <!-- categories area --> 
         <section class="main-section" id="categoriesContainer">
             <h2 class="main-title__section">Categories</h2>
             <div class="main-categories_movies" id="categoriesMovies">
-                <!-- categories area --> 
                <ul class="categoryList" id="categoryList">
                 <li class="loading">------<a href=""></a></li>
                 <li class="loading">------<a href=""></a></li>
@@ -50,11 +50,12 @@
                </ul>
             </div>
         </section>
+        <!-- trending movies area --> 
         <section class="main-section" id="trendingMoviesContainer">
                 <h2 class="main-title__section">Trending Movies</h2>
-                <button class="trendMoviesBtn"> Load More ...</button>
+                <button class="trendMoviesBtn" id="trendMoviesBtn"> Load More ...</button>
                 <div class="main-trending_movies" id="trendingMovies">
-                    <!-- trending short movies area --> 
+                    
                     <div class="post-movie loading"></div>
                     <div class="post-movie loading"></div>
                     <div class="post-movie loading"></div>
@@ -62,22 +63,10 @@
                     <div class="post-movie loading"></div>
                 </div>
         </section>
-        <section class="main-section inactive" id="trendingMoviesContainer">
-            <h2 class="main-title__section">Trending Movies</h2>
-            <button> Load More ...</button>
-            <div class="main-trending_longMovies" id="LongTrendingMovies">
-                <!-- trending long movies area --> 
-                <div class="post-movie loading"></div>
-                <div class="post-movie loading"></div>
-                <div class="post-movie loading"></div>
-                <div class="post-movie loading"></div>
-                <div class="post-movie loading"></div>
-            </div>
-    </section>
+        <!-- load category selected area --> 
         <section class="main-section inactive" id="categorySelectedContainer">
             <h2 class="main-title__section" id="header-category__title"></h2>
             <div class="main-active_movies" id="activeMoviesSelected">
-                <!-- load category selected area --> 
                 <div class="post-movie loading"></div>
                     <div class="post-movie loading"></div>
                     <div class="post-movie loading"></div>
@@ -90,10 +79,10 @@
                     <div class="post-movie loading"></div>
             </div>
         </section>
+        <!-- search movie container--> 
         <section class="main-section inactive" id="searchMovieContainer">
             <h2 class="main-title__section" id="header-category__title"> <i class="material-icons" id="historyBack">arrow_back</i>History to Search</h2>
             <div class="main-search__movie" id="searchContainer">
-                <!-- search movie container--> 
                 <div class="post-movie loading"></div>
                     <div class="post-movie loading"></div>
                     <div class="post-movie loading"></div>
@@ -106,8 +95,8 @@
                     <div class="post-movie loading"></div>
             </div>
         </section>
-        <section class="main-section inactive" id="movieDetails">
-             <!-- movie details selected --> 
+     <!-- movie details selected -->
+        <section class="main-section inactive" id="movieDetails"> 
              <article class="main-section__movieDetail" id="movieDetails_content">
                 <img src="" class="" id="imgMovieDetails"/>
                 <div>
