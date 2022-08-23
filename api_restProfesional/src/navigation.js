@@ -1,5 +1,5 @@
 //import and executing firts events 
-import {getCategoriesPreview, getMovies, getMovieById} from './axios.js'
+import {getCategoriesPreview, getMovies, getMovieById, trendsMovies} from './axios.js'
 import * as variables from './nodes.js';
 window.addEventListener('DOMContentLoaded', navigation, false);
 window.addEventListener('hashchange', navigation, false);
@@ -76,7 +76,7 @@ function searchPage(){
 
 function trendsPages(){
     console.log('trends') 
-    getMovies('/trending/movie/day', variables.generalMoviesContainer)
+    trendsMovies('/trending/movie/day', variables.generalMoviesContainer, {params:{page:1}}, true)
 
     variables.generalContainer.classList.remove('inactive')
     variables.categoriesContainer.classList.add('inactive')

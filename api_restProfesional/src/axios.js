@@ -18,38 +18,18 @@ function createObserver() {
         elements.forEach(element => {
             if (element.isIntersecting){
                 element.target.setAttribute('src', element.target.dataset.id)}
-                
         })
     })
 }
-
 //creo el observer,.
 let observer = createObserver()
 
-
-function createCategories(categories, container){
-    container.innerHTML= ''
-    const listCategory = []
-    categories.forEach(category => {
-                const oneCategory = document.createElement('li')
-                const categoryLink = document.createElement('a')
-                categoryLink.setAttribute('id', 'id' + category.id)
-                categoryLink.addEventListener('click', ()=>{
-                    location.hash = `#category=${category.id}-${category.name}`
-                })
-                categoryLink.innerHTML= category.name
-                oneCategory.append(categoryLink)
-                listCategory.push(oneCategory)
-    });
-    
-    container.append(...listCategory)
-
-}
-
 //function fill container of movies
- function fillMovies(movies, container){
+function fillMovies(movies, container, clean= true){
     try {
-        container.innerHTML = ''
+        if(clean){
+            container.innerHTML = ''
+        }
         const fillContainer = [];
         movies.forEach(movie => {
            const movieContainer = document.createElement('div');
@@ -78,6 +58,24 @@ function createCategories(categories, container){
     }
 };
 
+function createCategories(categories, container){
+    container.innerHTML= ''
+    const listCategory = []
+    categories.forEach(category => {
+                const oneCategory = document.createElement('li')
+                const categoryLink = document.createElement('a')
+                categoryLink.setAttribute('id', 'id' + category.id)
+                categoryLink.addEventListener('click', ()=>{
+                    location.hash = `#category=${category.id}-${category.name}`
+                })
+                categoryLink.innerHTML= category.name
+                oneCategory.append(categoryLink)
+                listCategory.push(oneCategory)
+    });
+    
+    container.append(...listCategory)
+}
+//functions for fill sections and container
 async function getMovies(path, container, optionalParams={}){
     try {
        const data =await getData(path, optionalParams)
@@ -118,12 +116,15 @@ async function getMovieById(id, container ){  //detail=[]
     } catch (error) {
          throw Error(error) 
     }
-
 }
-export {getCategoriesPreview, getMovies, getMovieById}
+async function trendsMovies(path, container, optionalParams={}, clean){
+        try {
+            const data =await getData(path, optionalParams)
+            const movies = data.results
+            fillMovies(movies, container, clean) 
+         } catch (error) {
+             throw Error(error)  
+         }
+}
 
-// detail[0].textContent = data.title
-// detail[1].textContent= data.vote_average.toFixed(1)
-// detail[2].textContent = data.overview
-// detail[3].src = `${IMG}${data.poster_path}`
-
+export {getCategoriesPreview, getMovies, getMovieById, trendsMovies}
