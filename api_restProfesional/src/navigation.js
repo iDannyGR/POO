@@ -27,7 +27,6 @@ function navigation(){
     }
 }
 
-
 //executing funtions when the users selected a sections or movies
 function homePage(){
     console.log('Home')
@@ -37,20 +36,21 @@ function homePage(){
     variables.categoriesContainer.classList.remove('inactive')
     variables.trendingMoviesContainer.classList.remove('inactive')
     variables.movieSelected.classList.add('inactive')
-    variables.searchMoviesContainer.classList.add('inactive')
-    variables.categorySelected.classList.add('inactive')
+    variables.generalContainer.classList.add('inactive')
 }
 
 function categoriesPage(){
-    variables.categorySelected.classList.remove('inactive')
+
     variables.categoriesContainer.classList.add('inactive')
     variables.trendingMoviesContainer.classList.add('inactive')
     variables.movieSelected.classList.add('inactive')
-    
+    variables.generalContainer.classList.remove('inactive')
+    variables.backButton.classList.add('inactive')
+
     const [_, categoryData]= location.hash.split('=') //['#category', 'id-name'] /show movies by category selected
     const [categoryId, categoryName] = categoryData.split('-')
     
-    getMovies('discover/movie', variables.activeCategorySelected, {
+    getMovies('discover/movie', variables.generalMoviesContainer, {
         params:{
             with_genres: categoryId}
         })
@@ -61,13 +61,12 @@ function searchPage(){
     console.log('vista de busqueda') 
     variables.movieSelected.classList.add('inactive')
     variables.categoriesContainer.classList.add('inactive')
-    variables.categorySelected.classList.add('inactive')
     variables.trendingMoviesContainer.classList.add('inactive')
-    variables.searchMoviesContainer.classList.remove('inactive')
-   
+    variables.generalContainer.classList.remove('inactive')
+    variables.backButton.classList.remove('inactive')
     //catch the url search and split for send the query 
     const [_ , query] = location.hash.split('=')
-    getMovies( 'search/movie', variables.searchContainer ,{params:{query}})
+    getMovies( 'search/movie', variables.generalMoviesContainer ,{params:{query}})
 
       //add history search to arrow button in search page
       variables.backButton.addEventListener('click', ()=> {
@@ -77,26 +76,30 @@ function searchPage(){
 
 function trendsPages(){
     console.log('trends') 
-    getMovies('/trending/movie/day', variables.activeCategorySelected)
+    getMovies('/trending/movie/day', variables.generalMoviesContainer)
 
-    variables.categorySelected.classList.remove('inactive')
+    variables.generalContainer.classList.remove('inactive')
     variables.categoriesContainer.classList.add('inactive')
     variables.trendingMoviesContainer.classList.add('inactive')
     variables.movieSelected.classList.add('inactive')
+    variables.backButton.classList.add('inactive')
     variables.titleArea.innerHTML = 'Trends'
 
+    const btnLoadMore = document.createElement('button')
+    btnLoadMore.innerText = 'Loar More'
+    variables.generalContainer.append(btnLoadMore)
 }
 
 function movieDetails(){
     window.scrollTo = (0, 0)
     console.log('Movie') 
+    variables.generalContainer.classList.add('inactive')
     variables.movieSelected.classList.remove('inactive')
     variables.categoriesContainer.classList.add('inactive')
-    variables.categorySelected.classList.add('inactive')
     variables.trendingMoviesContainer.classList.add('inactive')
-    variables.searchMoviesContainer.classList.add('inactive')
+    variables.searchButton.classList.add('inactive')
+
         const [_ , idMovieData] = location.hash.split('=')
     getMovieById(idMovieData, variables.movieContainer1 )
     getMovies(`/movie/${idMovieData}/similar`, variables.relatedMoviesScrollContainer)
 }
-//[variables.movieDetailTitle, variables.movieDetailScore, variables.movieDetailDescription, variables.imgMovieDetails, variables.movieRelatedCategory]
