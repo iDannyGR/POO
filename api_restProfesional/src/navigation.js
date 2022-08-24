@@ -66,6 +66,7 @@ function searchPage(){
     variables.backButton.classList.remove('inactive')
     //catch the url search and split for send the query 
     const [_ , query] = location.hash.split('=')
+    
     getMovies( 'search/movie', variables.generalMoviesContainer ,{params:{query}})
 
       //add history search to arrow button in search page
@@ -77,7 +78,7 @@ function searchPage(){
 function trendsPages(){
     console.log('trends') 
     trendsMovies('/trending/movie/day', variables.generalMoviesContainer, {params:{page:1}}, true)
-
+    
     variables.generalContainer.classList.remove('inactive')
     variables.categoriesContainer.classList.add('inactive')
     variables.trendingMoviesContainer.classList.add('inactive')
@@ -87,6 +88,10 @@ function trendsPages(){
 
     const btnLoadMore = document.createElement('button')
     btnLoadMore.innerText = 'Loar More'
+    btnLoadMore.addEventListener('click', ()=>{
+        let pagination = 1
+        trendsMovies('/trending/movie/day', variables.generalMoviesContainer, {params:{page:pagination+1}}, false)
+    })
     variables.generalContainer.append(btnLoadMore)
 }
 
