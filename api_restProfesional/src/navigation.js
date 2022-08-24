@@ -1,5 +1,5 @@
 //import and executing firts events 
-import {getCategoriesPreview, getMovies, getMovieById, trendsMovies} from './axios.js'
+import {getCategoriesPreview, getMovies, getMovieById, trendsMovies} from './axios1.1.js'
 import * as variables from './nodes.js';
 window.addEventListener('DOMContentLoaded', navigation, false);
 window.addEventListener('hashchange', navigation, false);
@@ -77,7 +77,7 @@ function searchPage(){
 
 function trendsPages(){
     console.log('trends') 
-    trendsMovies('/trending/movie/day', variables.generalMoviesContainer, {params:{page:1}}, true)
+    trendsMovies('/trending/movie/day', variables.generalMoviesContainer, {params:{page:1}}, {clean:true})
     
     variables.generalContainer.classList.remove('inactive')
     variables.categoriesContainer.classList.add('inactive')
@@ -86,13 +86,7 @@ function trendsPages(){
     variables.backButton.classList.add('inactive')
     variables.titleArea.innerHTML = 'Trends'
 
-    const btnLoadMore = document.createElement('button')
-    btnLoadMore.innerText = 'Loar More'
-    btnLoadMore.addEventListener('click', ()=>{
-        let pagination = 1
-        trendsMovies('/trending/movie/day', variables.generalMoviesContainer, {params:{page:pagination+1}}, false)
-    })
-    variables.generalContainer.append(btnLoadMore)
+    
 }
 
 function movieDetails(){

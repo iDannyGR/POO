@@ -220,7 +220,7 @@ footer a{
     color: purple;
 }
 /* category selected  and search */
-.main-active_movies, .main-search__movie{
+.main-active_movies{
     width:960px;
     height:600px;
     display: flex;
