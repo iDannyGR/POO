@@ -1,5 +1,5 @@
 import {API_KEY} from './env.js'
-import * as variables from './nodes.js';
+
 const IMG = 'https://image.tmdb.org/t/p/w300'
 const api = axios.create({
     baseURL : 'https://api.themoviedb.org/3/',
@@ -7,7 +7,6 @@ const api = axios.create({
         api_key: API_KEY,
     }
 });
-const URLAPI = {listCategory:'/genre/movie/list', trends:'/trending/movie/day',categorySelected:'discover/movie', search:'search/movie' }
 //function for query to the API
 async function getData(path, params={}){
     const {data} = await api.get(path, params)
@@ -118,25 +117,29 @@ async function getMovieById(id, container ){  //detail=[]
          throw Error(error) 
     }
 }
-async function trendsMovies(path, container, optionalParams={}, clean){
-        try {
-            const data =await getData(path, optionalParams)
-            const movies = data.results
-            fillMovies(movies, container, {clean:clean}) 
+async function pagination(container){
+    try {
+        const {scrollTop,scrollHeight,clientHeight} = container
+        const  autoScroll =  (scrollTop + clientHeight) == scrollHeight
+        let pagination = 1
 
-            const btnLoadMore = document.createElement('button')
-                btnLoadMore.innerText = 'Loar More'
-                let pagination = 1
-                btnLoadMore.addEventListener('click', ()=>{
-                    pagination++
-                trendsMovies('/trending/movie/day', container, {params:{page:pagination}}, false)
-                console.log(pagination)
-                    })
-                container.append(btnLoadMore)
-            
-         } catch (error) {
-             throw Error(error)  
-         }
+        if(autoScroll) {
+                pagination++
+              getMovies('/trending/movie/day', container, {params:{page:pagination}}, {clean:false})
+        }
+     } catch (error) {
+         throw Error(error)  
+     }
+}
+async function trendsMovies(path, container, optionalParams={}){
+    try {
+       const data =await getData(path, optionalParams)
+       const movies = data.results
+       fillMovies(movies, container) 
+       container.addEventListener('scroll', pagination(container)) 
+    } catch (error) {
+        throw Error(error)  
+    }
 }
 
 export {getCategoriesPreview, getMovies, getMovieById, trendsMovies}

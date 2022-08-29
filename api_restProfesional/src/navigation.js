@@ -1,6 +1,7 @@
 //import and executing firts events 
-import {getCategoriesPreview, getMovies, getMovieById, trendsMovies} from './axios1.1.js'
+import {getCategoriesPreview, getMovies, getMovieById, trendsMovies} from './axios.js'
 import * as variables from './nodes.js';
+const URLAPI = {listCategory:'/genre/movie/list', trends:'/trending/movie/day',categorySelected:'discover/movie', search:'search/movie' }
 window.addEventListener('DOMContentLoaded', navigation, false);
 window.addEventListener('hashchange', navigation, false);
 variables.trendMoviesBtn.addEventListener('click', ()=>{
@@ -30,8 +31,8 @@ function navigation(){
 //executing funtions when the users selected a sections or movies
 function homePage(){
     console.log('Home')
-    getMovies('/trending/movie/day', variables.allTreding)
-    getCategoriesPreview('/genre/movie/list', variables.categoryList)
+    getMovies(URLAPI.trends, variables.allTreding)
+    getCategoriesPreview(URLAPI.listCategory, variables.categoryList)
     
     variables.categoriesContainer.classList.remove('inactive')
     variables.trendingMoviesContainer.classList.remove('inactive')
@@ -50,7 +51,7 @@ function categoriesPage(){
     const [_, categoryData]= location.hash.split('=') //['#category', 'id-name'] /show movies by category selected
     const [categoryId, categoryName] = categoryData.split('-')
     
-    getMovies('discover/movie', variables.generalMoviesContainer, {
+    getMovies(URLAPI.categorySelected, variables.generalMoviesContainer, {
         params:{
             with_genres: categoryId}
         })
@@ -67,7 +68,7 @@ function searchPage(){
     //catch the url search and split for send the query 
     const [_ , query] = location.hash.split('=')
     
-    getMovies( 'search/movie', variables.generalMoviesContainer ,{params:{query}})
+    getMovies( URLAPI.search, variables.generalMoviesContainer ,{params:{query}})
 
       //add history search to arrow button in search page
       variables.backButton.addEventListener('click', ()=> {
@@ -76,19 +77,16 @@ function searchPage(){
 }
 
 function trendsPages(){
-    console.log('trends') 
-    trendsMovies('/trending/movie/day', variables.generalMoviesContainer, {params:{page:1}}, {clean:true})
-    
+    console.log('trends')     
     variables.generalContainer.classList.remove('inactive')
     variables.categoriesContainer.classList.add('inactive')
     variables.trendingMoviesContainer.classList.add('inactive')
     variables.movieSelected.classList.add('inactive')
     variables.backButton.classList.add('inactive')
     variables.titleArea.innerHTML = 'Trends'
-
+     getMovies(URLAPI.trends, variables.generalMoviesContainer,{clean:true})
     
 }
-
 function movieDetails(){
     window.scrollTo = (0, 0)
     console.log('Movie') 
