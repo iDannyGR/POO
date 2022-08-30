@@ -84,7 +84,7 @@ function trendsPages(){
     variables.movieSelected.classList.add('inactive')
     variables.backButton.classList.add('inactive')
     variables.titleArea.innerHTML = 'Trends'
-     getMovies(URLAPI.trends, variables.generalMoviesContainer,{clean:true})
+    trendsMovies(URLAPI.trends, variables.generalMoviesContainer,{clean:true})
     
 }
 function movieDetails(){

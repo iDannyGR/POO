@@ -1,4 +1,5 @@
 import {API_KEY} from './env.js'
+import { trendMoviesBtn } from './nodes.js';
 
 const IMG = 'https://image.tmdb.org/t/p/w300'
 const api = axios.create({
@@ -119,14 +120,17 @@ async function getMovieById(id, container ){  //detail=[]
 }
 async function pagination(container){
     try {
-        const {scrollTop,scrollHeight,clientHeight} = container
-        const  autoScroll =  (scrollTop + clientHeight) == scrollHeight
-        let pagination = 1
-
-        if(autoScroll) {
-                pagination++
-              getMovies('/trending/movie/day', container, {params:{page:pagination}}, {clean:false})
-        }
+        container.addEventListener('scroll', ()=>{
+            const {scrollTop,scrollHeight,clientHeight} = container
+            const  autoScroll =  (scrollTop + clientHeight ) == scrollHeight
+            let pagination = 1
+    
+            console.log(scrollTop,scrollHeight,clientHeight,autoScroll )
+            if(autoScroll) {
+                    pagination++
+                  fillMovies('/trending/movie/day', container, {params:{page:pagination}}, {clean:false}) // hay que corregir esto porque fill movies no recibe esos parametros
+            }
+        })
      } catch (error) {
          throw Error(error)  
      }
@@ -136,10 +140,10 @@ async function trendsMovies(path, container, optionalParams={}){
        const data =await getData(path, optionalParams)
        const movies = data.results
        fillMovies(movies, container) 
-       container.addEventListener('scroll', pagination(container)) 
+       pagination(container)
     } catch (error) {
         throw Error(error)  
     }
 }
 
-export {getCategoriesPreview, getMovies, getMovieById, trendsMovies}
+export {getCategoriesPreview, getMovies, getMovieById,pagination, trendsMovies}
