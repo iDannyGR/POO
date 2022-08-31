@@ -81,6 +81,7 @@ async function getMovies(path, container, optionalParams={}){
        const data =await getData(path, optionalParams)
        const movies = data.results
        fillMovies(movies, container) 
+       container.addEventListener('scroll', ()=>{pagination(container, path)})
     } catch (error) {
         throw Error(error)  
     }
@@ -117,16 +118,17 @@ async function getMovieById(id, container ){  //detail=[]
          throw Error(error) 
     }
 }
-async function pagination(container){
+async function pagination(container, pach){
     try {
             const {scrollTop,scrollHeight,clientHeight} = container
             const  autoScroll =  (scrollTop + clientHeight ) == scrollHeight
-            
+            let page = 1
+            console.log(autoScroll, scrollTop,clientHeight, scrollHeight)
             if(autoScroll) {
                     page++
-                    const data = await getData('/trending/movie/day', {params:{page:pagination}})
+                    const data = await getData(pach, {params:{page:page}})
                     const movies = data.results
-                  fillMovies(movies,container, {clean:false}) 
+                  fillMovies(movies,container,{clean:false}) 
             }
      } catch (error) {
          throw Error(error)  
@@ -137,6 +139,7 @@ async function trendsMovies(path, container, optionalParams={}){
        const data =await getData(path, optionalParams)
        const movies = data.results
        fillMovies(movies, container) 
+       container.addEventListener('scroll', ()=>{pagination(container, path)})
     } catch (error) {
         throw Error(error)  
     }
