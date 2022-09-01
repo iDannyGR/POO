@@ -1,8 +1,6 @@
 //import and executing firts events 
 import {getCategoriesPreview, getMovies, getMovieById, trendsMovies, pagination} from './axios.js'
 import * as variables from './nodes.js';
-
-let infinityScroll
 const URLAPI = {listCategory:'/genre/movie/list', trends:'/trending/movie/day',categorySelected:'discover/movie', search:'search/movie' }
 window.addEventListener('DOMContentLoaded', navigation, false);
 window.addEventListener('hashchange', navigation, false);
@@ -87,7 +85,6 @@ function trendsPages(){
     variables.backButton.classList.add('inactive')
     variables.titleArea.innerHTML = 'Trends'
     trendsMovies(URLAPI.trends, variables.generalMoviesContainer,{clean:true})
-    infinityScroll = pagination(variables.generalMoviesContainer, URLAPI.trends)
     
 }
 function movieDetails(){

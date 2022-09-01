@@ -24,3 +24,4 @@
  export const movieContainer1 = $('movieDetails_content')
  export const movieContainer2 = $('movieDetails_RelatedMovies')
  export const relatedMoviesScrollContainer = $('relatedMoviesScrollContainer')
+ 

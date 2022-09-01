@@ -1,5 +1,5 @@
 import {API_KEY} from './env.js'
-
+let maxPage, page = 1
 const IMG = 'https://image.tmdb.org/t/p/w300'
 const api = axios.create({
     baseURL : 'https://api.themoviedb.org/3/',
@@ -10,6 +10,7 @@ const api = axios.create({
 //function for query to the API
 async function getData(path, params={}){
     const {data} = await api.get(path, params)
+    maxPage = data.total_pages
     return data
 }
 
@@ -86,7 +87,6 @@ async function getMovies(path, container, optionalParams={}){
         throw Error(error)  
     }
 }
-
 async function getCategoriesPreview(path, container){
     try {
         const data =await getData(path)
@@ -122,14 +122,16 @@ async function pagination(container, pach){
     try {
             const {scrollTop,scrollHeight,clientHeight} = container
             const  autoScroll =  (scrollTop + clientHeight ) == scrollHeight
-            let page = 1
-            console.log(autoScroll, scrollTop,clientHeight, scrollHeight)
-            if(autoScroll) {
+            
+            const pageisMax = (maxPage > page)
+            console.log(pageisMax, maxPage, page)
+            if(autoScroll && pageisMax) {
                     page++
                     const data = await getData(pach, {params:{page:page}})
                     const movies = data.results
                   fillMovies(movies,container,{clean:false}) 
             }
+
      } catch (error) {
          throw Error(error)  
      }
