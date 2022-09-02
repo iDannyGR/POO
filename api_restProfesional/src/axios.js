@@ -1,5 +1,6 @@
 import {API_KEY} from './env.js'
-let maxPage, page = 1
+let maxPage
+let page = 1
 const IMG = 'https://image.tmdb.org/t/p/w300'
 const api = axios.create({
     baseURL : 'https://api.themoviedb.org/3/',
@@ -123,8 +124,8 @@ async function pagination(container, pach){
             const {scrollTop,scrollHeight,clientHeight} = container
             const  autoScroll =  (scrollTop + clientHeight ) == scrollHeight
             
-            const pageisMax = (maxPage > page)
-            console.log(pageisMax, maxPage, page)
+            const pageisMax = maxPage > page
+            
             if(autoScroll && pageisMax) {
                     page++
                     const data = await getData(pach, {params:{page:page}})
