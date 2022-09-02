@@ -41,11 +41,12 @@ function fillMovies(movies, container, {clean=true}={}){
            })
            const imgMovie = document.createElement('img');
            const averageMovie = document.createElement('p');
+           const addBtn = document.createElement('span')
            if(movie.poster_path) {
             imgMovie.setAttribute('data-id', IMG + movie.poster_path)
            imgMovie.setAttribute('alt', movie.title);  //en setAttribute se puede agregar logica de programacion
            averageMovie.innerHTML= 'date: ' + movie.release_date
-           movieContainer.append(imgMovie, averageMovie);
+           movieContainer.append(imgMovie,addBtn, averageMovie);
            }else{
                 movieContainer.classList.add('empty')
                 averageMovie.innerHTML = movie.title

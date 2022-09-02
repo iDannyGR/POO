@@ -184,6 +184,7 @@ nav input[type="text"]{
     background-color: white;
 }
 /*end scrollbar styles*/
+/*styles of movie*/
 .post-movie{
     margin: 10px;
     width: 150px;
@@ -209,6 +210,14 @@ nav input[type="text"]{
     border-radius: 25px;
     box-shadow: 1px 0px 7px black;
 }
+.post-movie span{
+    font-family: var(--font-theme);
+    font-size: 1.2rem;
+    color: white;
+    
+    border: 1px solid white;
+}
+/*end of movie*/
 footer{
     padding: 25px 0 25px 0 ;
     text-align: center;
