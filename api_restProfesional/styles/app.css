@@ -189,16 +189,13 @@ nav input[type="text"]{
     margin: 10px;
     width: 150px;
     height: 220px;
+    padding: 0 10px 30px 0;
+    border: 1px solid white;
+    position: relative;
 }
 .post-movie:hover, .relatedMovies-scrollContainer img:hover{
     transform: scale(1.1);
     transition: .2s;
-}
-.post-movie{
-    margin: 10px;
-    width: 150px;
-    height: 220px;
-    padding: 0 10px 30px 0;
 }
 .post-movie p {
     font-size:1rem;
@@ -209,13 +206,18 @@ nav input[type="text"]{
     object-fit:cover;
     border-radius: 25px;
     box-shadow: 1px 0px 7px black;
+    z-index: 1;
 }
-.post-movie span{
-    font-family: var(--font-theme);
-    font-size: 1.2rem;
+.post-movie i{
+    position:absolute;
+    font-size: 2.2rem;
     color: white;
-    
-    border: 1px solid white;
+    margin: auto;
+    padding: 0px;
+    z-index: 2;
+}
+.post-movie i:hover{
+    color: red;
 }
 /*end of movie*/
 footer{

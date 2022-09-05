@@ -23,8 +23,9 @@ function navigation(){
      movieDetails()
    }else if(location.hash.startsWith('#category=')) {
      categoriesPage()
-   }else {
-    homePage()
+   }else if (location.hash.startsWith('#favorites')){
+    favoritePage()
+   }else{homePage()
     }
 }
 
@@ -38,6 +39,8 @@ function homePage(){
     variables.trendingMoviesContainer.classList.remove('inactive')
     variables.movieSelected.classList.add('inactive')
     variables.generalContainer.classList.add('inactive')
+    variables.favoriteContainer.classList.remove('inactive')
+    variables.titleFavorite.classList.remove('inactive')
 }
 
 function categoriesPage(){
@@ -47,7 +50,8 @@ function categoriesPage(){
     variables.movieSelected.classList.add('inactive')
     variables.generalContainer.classList.remove('inactive')
     variables.backButton.classList.add('inactive')
-
+    variables.favoriteContainer.classList.add('inactive')
+    variables.titleFavorite.classList.add('inactive')
     const [_, categoryData]= location.hash.split('=') //['#category', 'id-name'] /show movies by category selected
     const [categoryId, categoryName] = categoryData.split('-')
     
@@ -65,6 +69,8 @@ function searchPage(){
     variables.trendingMoviesContainer.classList.add('inactive')
     variables.generalContainer.classList.remove('inactive')
     variables.backButton.classList.remove('inactive')
+    variables.favoriteContainer.classList.add('inactive')
+    variables.titleFavorite.classList.add('inactive')
     //catch the url search and split for send the query 
     const [_ , query] = location.hash.split('=')
     
@@ -84,8 +90,21 @@ function trendsPages(){
     variables.movieSelected.classList.add('inactive')
     variables.backButton.classList.add('inactive')
     variables.titleArea.innerHTML = 'Trends'
+    variables.favoriteContainer.classList.add('inactive')
+    variables.titleFavorite.classList.add('inactive')
     trendsMovies(URLAPI.trends, variables.generalMoviesContainer,{clean:true})
     
+}
+function favoritePage(){
+    console.log('favourite')     
+    variables.generalContainer.classList.add('inactive')
+    variables.categoriesContainer.classList.add('inactive')
+    variables.trendingMoviesContainer.classList.add('inactive')
+    variables.movieSelected.classList.add('inactive')
+    variables.backButton.classList.add('inactive')
+    variables.titleArea.innerHTML = 'Trends'
+    variables.favoriteContainer.classList.remove('inactive')
+    variables.titleFavorite.classList.remove('inactive')
 }
 function movieDetails(){
     window.scrollTo = (0, 0)
@@ -95,6 +114,8 @@ function movieDetails(){
     variables.categoriesContainer.classList.add('inactive')
     variables.trendingMoviesContainer.classList.add('inactive')
     variables.searchButton.classList.add('inactive')
+    variables.favoriteContainer.classList.add('inactive')
+    variables.titleFavorite.classList.add('inactive')
 
         const [_ , idMovieData] = location.hash.split('=')
     getMovieById(idMovieData, variables.movieContainer1 )

@@ -15,8 +15,10 @@
 
 //main div for fill movies
  export const allTreding = $('trendingMovies')
+ export const favoriteContainer = $('favoriteContainer')
  export const generalMoviesContainer = $('generalMoviesContainer') 
  export const titleArea = $('header-category__title') //title of selected category
+ export const titleFavorite =  $('header-favorite__title') //title of favorite category
  export const trendMoviesBtn = $('trendMoviesBtn')
 
  //movie details

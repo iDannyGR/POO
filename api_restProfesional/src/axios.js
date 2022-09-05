@@ -41,7 +41,9 @@ function fillMovies(movies, container, {clean=true}={}){
            })
            const imgMovie = document.createElement('img');
            const averageMovie = document.createElement('p');
-           const addBtn = document.createElement('span')
+           const addBtn = document.createElement('i')
+           addBtn.classList.add('material-icons')
+           addBtn.textContent='add'
            if(movie.poster_path) {
             imgMovie.setAttribute('data-id', IMG + movie.poster_path)
            imgMovie.setAttribute('alt', movie.title);  //en setAttribute se puede agregar logica de programacion
