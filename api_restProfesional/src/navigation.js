@@ -1,5 +1,5 @@
 //import and executing firts events 
-import {getCategoriesPreview, getMovies, getMovieById, trendsMovies, pagination} from './axios.js'
+import {getCategoriesPreview,previewTrending, getMovies, getMovieById, trendsMovies} from './axios.js'
 import * as variables from './nodes.js';
 const URLAPI = {listCategory:'/genre/movie/list', trends:'/trending/movie/day',categorySelected:'discover/movie', search:'search/movie' }
 window.addEventListener('DOMContentLoaded', navigation, false);
@@ -32,7 +32,7 @@ function navigation(){
 //executing funtions when the users selected a sections or movies
 function homePage(){
     console.log('Home')
-    getMovies(URLAPI.trends, variables.allTreding)
+    previewTrending(URLAPI.trends, variables.allTreding)
     getCategoriesPreview(URLAPI.listCategory, variables.categoryList)
     
     variables.categoriesContainer.classList.remove('inactive')

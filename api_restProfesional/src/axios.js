@@ -41,7 +41,7 @@ function fillMovies(movies, container, {clean=true}={}){
            })
            const imgMovie = document.createElement('img');
            const averageMovie = document.createElement('p');
-           const addBtn = document.createElement('i')
+           const addBtn = document.createElement('button')
            addBtn.classList.add('material-icons')
            addBtn.textContent='add'
            if(movie.poster_path) {
@@ -140,6 +140,16 @@ async function pagination(container, pach){
          throw Error(error)  
      }
 }
+async function previewTrending(path, container){
+    try {
+        const data = await getData(path)
+        const movies = data.results
+         fillMovies(movies, container)
+    } catch (error) {
+        throw new Error(error)
+    }  
+}
+
 async function trendsMovies(path, container, optionalParams={}){
     try {
        const data =await getData(path, optionalParams)
@@ -151,4 +161,4 @@ async function trendsMovies(path, container, optionalParams={}){
     }
 }
 
-export {getCategoriesPreview, getMovies, getMovieById,pagination, trendsMovies}
+export {getCategoriesPreview, getMovies, getMovieById,previewTrending,trendsMovies}
