@@ -14,7 +14,6 @@
     --textsize1:12px;
     --max-width : 1300px;
 }
-
 html{
     font-family: var(--font-theme);
 }
@@ -34,7 +33,6 @@ header{
     top: 0px;
     width: 100%;
 }
-
 /* header formating <---- >*/
 .main{
     margin: auto;
@@ -198,7 +196,6 @@ nav input[type="text"]{
     transform: scale(1.1);
     transition: .2s;
 }
-
 .post-movie img{
     width:150px;
     height:220px;
@@ -208,17 +205,17 @@ nav input[type="text"]{
 .btn_Liked{
     background: none;
     border: none;
-    font-size: 2rem;
+    font-size: 1.8rem;
     position: absolute;
     right: 10px;
+    top: -5px;
     cursor: pointer;
 }
 .btn_Liked::before{
     content: '🤍';
 }
-
 .favorite__btn-liked::before{
-    content:'💛' ;
+    content:'💙' ;
 }
 .post-movie p {
     font-size:1rem;
@@ -308,7 +305,6 @@ footer a{
 .relatedMovies-container .relatedMovies-title{
     margin:24px;
 }
-
 #movieSelectedCategory{
     display: flex;
     justify-content: center;
@@ -338,7 +334,6 @@ footer a{
 @keyframes anmBg {
     to{background-position: -170% 0;}
 }
-
 /*general options*/
 .inactive{
     display:none;

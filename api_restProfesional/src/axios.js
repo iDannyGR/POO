@@ -1,6 +1,7 @@
 import {API_KEY} from './env.js'
 let maxPage
 let page = 1
+//data
 const IMG = 'https://image.tmdb.org/t/p/w300'
 const api = axios.create({
     baseURL : 'https://api.themoviedb.org/3/',
@@ -8,6 +9,19 @@ const api = axios.create({
         api_key: API_KEY,
     }
 });
+function listLikedMovies(){
+    const item = localStorage.getItem('liked_Movies')
+    if(!item){return {}}
+    return item
+}
+function likeBtn(movie){
+    const likedMovs = listLikedMovies()
+
+    likedMovs[movie.id]?
+    console.log('la pelicula ya estaba en en localStorage'):
+    localStorage.setItem(JSON.stringify(movie))
+
+}
 //function for query to the API
 async function getData(path, params={}){
     const {data} = await api.get(path, params)
@@ -45,6 +59,7 @@ function fillMovies(movies, container, {clean=true}={}){
            addBtn.classList.add('btn_Liked')
            addBtn.addEventListener('click', ()=>{
                 addBtn.classList.toggle('favorite__btn-liked')
+                likeBtn(movie)
            })
            if(movie.poster_path) {
             imgMovie.setAttribute('data-id', IMG + movie.poster_path)
