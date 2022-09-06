@@ -192,6 +192,7 @@ nav input[type="text"]{
     height: 220px;
     padding: 0 10px 30px 0;
     position:relative;
+    cursor: pointer;
 }
 .post-movie:hover{
     transform: scale(1.1);
@@ -203,19 +204,25 @@ nav input[type="text"]{
     height:220px;
     object-fit:cover;
     border-radius: 25px;
-    z-index: 1;
 }
-.post-movie button{
+.btn_Liked{
     background: none;
     border: none;
-    color:white;
-    font-size: 2.2rem;
+    font-size: 2rem;
     position: absolute;
-
+    right: 10px;
+    cursor: pointer;
+}
+.btn_Liked::before{
+    content: '🤍';
 }
 
+.favorite__btn-liked::before{
+    content:'💛' ;
+}
 .post-movie p {
     font-size:1rem;
+    padding: 5px;
 }
 /*end of movie*/
 footer{

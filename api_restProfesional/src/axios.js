@@ -36,14 +36,16 @@ function fillMovies(movies, container, {clean=true}={}){
         movies.forEach(movie => {
            const movieContainer = document.createElement('div');
            movieContainer.classList.add('post-movie');
-           movieContainer.addEventListener('click',() =>{
-                location.hash = `#movie=${movie.id}`
-           })
            const imgMovie = document.createElement('img');
+           imgMovie.addEventListener('click',() =>{
+            location.hash = `#movie=${movie.id}`
+       })
            const averageMovie = document.createElement('p');
            const addBtn = document.createElement('button')
-           addBtn.classList.add('material-icons')
-           addBtn.textContent='add'
+           addBtn.classList.add('btn_Liked')
+           addBtn.addEventListener('click', ()=>{
+                addBtn.classList.toggle('favorite__btn-liked')
+           })
            if(movie.poster_path) {
             imgMovie.setAttribute('data-id', IMG + movie.poster_path)
            imgMovie.setAttribute('alt', movie.title);  //en setAttribute se puede agregar logica de programacion
