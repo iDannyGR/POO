@@ -1,5 +1,5 @@
 //import and executing firts events 
-import {getCategoriesPreview,previewTrending, getMovies, getMovieById, trendsMovies} from './axios.js'
+import {getCategoriesPreview,previewTrending, getMovies, getMovieById, trendsMovies, getlikedMovies} from './axios.js'
 import * as variables from './nodes.js';
 const URLAPI = {listCategory:'/genre/movie/list', trends:'/trending/movie/day',categorySelected:'discover/movie', search:'search/movie' }
 window.addEventListener('DOMContentLoaded', navigation, false);
@@ -39,8 +39,8 @@ function homePage(){
     variables.trendingMoviesContainer.classList.remove('inactive')
     variables.movieSelected.classList.add('inactive')
     variables.generalContainer.classList.add('inactive')
-    variables.favoriteContainer.classList.remove('inactive')
-    variables.titleFavorite.classList.remove('inactive')
+    variables.favoriteSection.classList.add('inactive')
+    variables.titleFavorite.classList.add('inactive')
 }
 
 function categoriesPage(){
@@ -50,7 +50,7 @@ function categoriesPage(){
     variables.movieSelected.classList.add('inactive')
     variables.generalContainer.classList.remove('inactive')
     variables.backButton.classList.add('inactive')
-    variables.favoriteContainer.classList.add('inactive')
+    variables.favoriteSection.classList.add('inactive')
     variables.titleFavorite.classList.add('inactive')
     const [_, categoryData]= location.hash.split('=') //['#category', 'id-name'] /show movies by category selected
     const [categoryId, categoryName] = categoryData.split('-')
@@ -69,7 +69,7 @@ function searchPage(){
     variables.trendingMoviesContainer.classList.add('inactive')
     variables.generalContainer.classList.remove('inactive')
     variables.backButton.classList.remove('inactive')
-    variables.favoriteContainer.classList.add('inactive')
+    variables.favoriteSection.classList.add('inactive')
     variables.titleFavorite.classList.add('inactive')
     //catch the url search and split for send the query 
     const [_ , query] = location.hash.split('=')
@@ -90,7 +90,7 @@ function trendsPages(){
     variables.movieSelected.classList.add('inactive')
     variables.backButton.classList.add('inactive')
     variables.titleArea.innerHTML = 'Trends'
-    variables.favoriteContainer.classList.add('inactive')
+    variables.favoriteSection.classList.add('inactive')
     variables.titleFavorite.classList.add('inactive')
     trendsMovies(URLAPI.trends, variables.generalMoviesContainer,{clean:true})
     
@@ -103,8 +103,9 @@ function favoritePage(){
     variables.movieSelected.classList.add('inactive')
     variables.backButton.classList.add('inactive')
     variables.titleArea.innerHTML = 'Trends'
-    variables.favoriteContainer.classList.remove('inactive')
+    variables.favoriteSection.classList.remove('inactive')
     variables.titleFavorite.classList.remove('inactive')
+    getlikedMovies(variables.favoriteContainer)
 }
 function movieDetails(){
     window.scrollTo = (0, 0)
@@ -114,7 +115,7 @@ function movieDetails(){
     variables.categoriesContainer.classList.add('inactive')
     variables.trendingMoviesContainer.classList.add('inactive')
     variables.searchButton.classList.add('inactive')
-    variables.favoriteContainer.classList.add('inactive')
+    variables.favoriteSection.classList.add('inactive')
     variables.titleFavorite.classList.add('inactive')
 
         const [_ , idMovieData] = location.hash.split('=')

@@ -9,19 +9,22 @@ const api = axios.create({
         api_key: API_KEY,
     }
 });
+//localStorage movie liked
 function listLikedMovies(){
-    const item = localStorage.getItem('liked_Movies')
+    const item =JSON.parse(localStorage.getItem('liked_Movies'))
     if(!item){return {}}
     return item
 }
 function likeBtn(movie){
     const likedMovs = listLikedMovies()
-
+    console.log(likedMovs)
     likedMovs[movie.id]?
-    console.log('la pelicula ya estaba en en localStorage'):
-    localStorage.setItem(JSON.stringify(movie))
-
+    likedMovs[movie.id]= undefined:
+    likedMovs[movie.id]= movie
+    
+    localStorage.setItem('liked_Movies',JSON.stringify(likedMovs))
 }
+//end localStorage
 //function for query to the API
 async function getData(path, params={}){
     const {data} = await api.get(path, params)
@@ -57,6 +60,7 @@ function fillMovies(movies, container, {clean=true}={}){
            const averageMovie = document.createElement('p');
            const addBtn = document.createElement('button')
            addBtn.classList.add('btn_Liked')
+           listLikedMovies()[movie.id] && addBtn.classList.add('favorite__btn-liked')
            addBtn.addEventListener('click', ()=>{
                 addBtn.classList.toggle('favorite__btn-liked')
                 likeBtn(movie)
@@ -178,4 +182,10 @@ async function trendsMovies(path, container, optionalParams={}){
     }
 }
 
-export {getCategoriesPreview, getMovies, getMovieById,previewTrending,trendsMovies}
+function getlikedMovies(container){
+    const likedMovies = listLikedMovies()
+    const moviesArray = Object.values(likedMovies)
+    fillMovies(moviesArray, container)
+
+}
+export {getCategoriesPreview, getMovies, getMovieById,previewTrending,trendsMovies, getlikedMovies}
